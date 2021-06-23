@@ -1,593 +1,480 @@
-@extends('layouts.default')
 
-@section('content')
-{{-- <div id="content" class="main-content">
-    <div class="layout-px-spacing">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>NobleUI Responsive Bootstrap 4 Dashboard Template</title>
+    <!-- core:css -->
+    <link rel="stylesheet" href="{{ asset('assets/vendors/core/core.css') }}">
+    <!-- endinject -->
+  <!-- plugin css for this page -->
+    <link rel="stylesheet" href="{{ asset('assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css') }}">
+    <!-- end plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="{{ asset('assets/fonts/feather-font/css/iconfont.css') }}">
+    <!-- endinject -->
+  <!-- Layout styles -->  
+    <link rel="stylesheet" href="{{ asset('assets/css/demo_1/style.css') }}">
+  <!-- End layout styles -->
+  <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}" />
+  <!-- Global site tag (gtag.js) - Google Analytics start -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-146586338-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-        <div class="row layout-top-spacing">
+    gtag('config', 'UA-146586338-1');
+  </script>
+  <!-- Google Analytics end -->
+</head>
+<body>
+    <div class="main-wrapper">
 
-            <div class="col-xl-8 col-lg-12 col-md-12 col-sm-12 col-12 layout-spacing">
-                <div class="widget widget-chart-one">
-                    <div class="widget-heading">
-                        <h5 class="">Revenue</h5>
-                        <ul class="tabs tab-pills">
-                            <li><a href="javascript:void(0);" id="tb_1" class="tabmenu">Monthly</a></li>
-                        </ul>
-                    </div>
+        <!-- partial:partials/_sidebar.html -->
+           @include('partials._sidebar')
+        <!-- partial -->
+    
+        <div class="page-wrapper">
+                    
+            <!-- partial:partials/_navbar.html -->
+           @include('partials._navbar')
+            <!-- partial -->
 
-                    <div class="widget-content">
-                        <div class="tabs tab-content">
-                            <div id="content_1" class="tabcontent">
-                                <div id="revenueMonthly"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12 col-12 layout-spacing">
-                <div class="widget widget-chart-two">
-                    <div class="widget-heading">
-                        <h5 class="">Sales by Category</h5>
-                    </div>
-                    <div class="widget-content">
-                        <div id="chart-2" class=""></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12 layout-spacing">
-                <div class="widget-two">
-                    <div class="widget-content">
-                        <div class="w-numeric-value">
-                            <div class="w-content">
-                                <span class="w-value">Daily sales</span>
-                                <span class="w-numeric-title">Go to columns for details.</span>
-                            </div>
-                            <div class="w-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-dollar-sign"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
-                            </div>
-                        </div>
-                        <div class="w-chart">
-                            <div id="daily-sales"></div>
-                        </div>
+            <div class="page-content">
+                <div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
+                    <div>
+                      <h4 class="mb-3 mb-md-0">Welcome to Dashboard</h4>
                     </div>
                 </div>
-            </div>
-
-            <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12 layout-spacing">
-                <div class="widget-three">
-                    <div class="widget-heading">
-                        <h5 class="">Summary</h5>
-                    </div>
-                    <div class="widget-content">
-
-                        <div class="order-summary">
-
-                            <div class="summary-list">
-                                <div class="w-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                 {{--  <div class="row">
+                    <div class="col-12 col-xl-12 stretch-card">
+                      <div class="row flex-grow">
+                        <div class="col-md-4 grid-margin stretch-card">
+                          <div class="card">
+                            <div class="card-body">
+                              <div class="d-flex justify-content-between align-items-baseline">
+                                <h6 class="card-title mb-0">New Customers</h6>
+                                <div class="dropdown mb-2">
+                                  <button class="btn p-0" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
+                                  </button>
+                                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item d-flex align-items-center" href="#"><i data-feather="eye" class="icon-sm mr-2"></i> <span class="">View</span></a>
+                                    <a class="dropdown-item d-flex align-items-center" href="#"><i data-feather="edit-2" class="icon-sm mr-2"></i> <span class="">Edit</span></a>
+                                    <a class="dropdown-item d-flex align-items-center" href="#"><i data-feather="trash" class="icon-sm mr-2"></i> <span class="">Delete</span></a>
+                                    <a class="dropdown-item d-flex align-items-center" href="#"><i data-feather="printer" class="icon-sm mr-2"></i> <span class="">Print</span></a>
+                                    <a class="dropdown-item d-flex align-items-center" href="#"><i data-feather="download" class="icon-sm mr-2"></i> <span class="">Download</span></a>
+                                  </div>
                                 </div>
-                                <div class="w-summary-details">
+                              </div>
+                              <div class="row">
+                                <div class="col-6 col-md-12 col-xl-5">
+                                  <h3 class="mb-2">3,897</h3>
+                                  <div class="d-flex align-items-baseline">
+                                    <p class="text-success">
+                                      <span>+3.3%</span>
+                                      <i data-feather="arrow-up" class="icon-sm mb-1"></i>
+                                    </p>
+                                  </div>
+                                </div>
+                                <div class="col-6 col-md-12 col-xl-7">
+                                  <div id="apexChart1" class="mt-md-3 mt-xl-0"></div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-4 grid-margin stretch-card">
+                          <div class="card">
+                            <div class="card-body">
+                              <div class="d-flex justify-content-between align-items-baseline">
+                                <h6 class="card-title mb-0">New Orders</h6>
+                                <div class="dropdown mb-2">
+                                  <button class="btn p-0" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
+                                  </button>
+                                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <a class="dropdown-item d-flex align-items-center" href="#"><i data-feather="eye" class="icon-sm mr-2"></i> <span class="">View</span></a>
+                                    <a class="dropdown-item d-flex align-items-center" href="#"><i data-feather="edit-2" class="icon-sm mr-2"></i> <span class="">Edit</span></a>
+                                    <a class="dropdown-item d-flex align-items-center" href="#"><i data-feather="trash" class="icon-sm mr-2"></i> <span class="">Delete</span></a>
+                                    <a class="dropdown-item d-flex align-items-center" href="#"><i data-feather="printer" class="icon-sm mr-2"></i> <span class="">Print</span></a>
+                                    <a class="dropdown-item d-flex align-items-center" href="#"><i data-feather="download" class="icon-sm mr-2"></i> <span class="">Download</span></a>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-6 col-md-12 col-xl-5">
+                                  <h3 class="mb-2">35,084</h3>
+                                  <div class="d-flex align-items-baseline">
+                                    <p class="text-danger">
+                                      <span>-2.8%</span>
+                                      <i data-feather="arrow-down" class="icon-sm mb-1"></i>
+                                    </p>
+                                  </div>
+                                </div>
+                                <div class="col-6 col-md-12 col-xl-7">
+                                  <div id="apexChart2" class="mt-md-3 mt-xl-0"></div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-4 grid-margin stretch-card">
+                          <div class="card">
+                            <div class="card-body">
+                              <div class="d-flex justify-content-between align-items-baseline">
+                                <h6 class="card-title mb-0">Growth</h6>
+                                <div class="dropdown mb-2">
+                                  <button class="btn p-0" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
+                                  </button>
+                                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                                    <a class="dropdown-item d-flex align-items-center" href="#"><i data-feather="eye" class="icon-sm mr-2"></i> <span class="">View</span></a>
+                                    <a class="dropdown-item d-flex align-items-center" href="#"><i data-feather="edit-2" class="icon-sm mr-2"></i> <span class="">Edit</span></a>
+                                    <a class="dropdown-item d-flex align-items-center" href="#"><i data-feather="trash" class="icon-sm mr-2"></i> <span class="">Delete</span></a>
+                                    <a class="dropdown-item d-flex align-items-center" href="#"><i data-feather="printer" class="icon-sm mr-2"></i> <span class="">Print</span></a>
+                                    <a class="dropdown-item d-flex align-items-center" href="#"><i data-feather="download" class="icon-sm mr-2"></i> <span class="">Download</span></a>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-6 col-md-12 col-xl-5">
+                                  <h3 class="mb-2">89.7%</h3>
+                                  <div class="d-flex align-items-baseline">
+                                    <p class="text-success">
+                                      <span>+2.8%</span>
+                                      <i data-feather="arrow-up" class="icon-sm mb-1"></i>
+                                    </p>
+                                  </div>
+                                </div>
+                                <div class="col-6 col-md-12 col-xl-7">
+                                  <div id="apexChart3" class="mt-md-3 mt-xl-0"></div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div> <!-- row -->
 
-                                    <div class="w-summary-info">
-                                        <h6>Income</h6>
-                                        <p class="summary-count">$92,600</p>
+                          <div class="row">
+                            <div class="col-12 col-xl-12 grid-margin stretch-card">
+                              <div class="card overflow-hidden">
+                                <div class="card-body">
+                                  <div class="d-flex justify-content-between align-items-baseline mb-4 mb-md-3">
+                                    <h6 class="card-title mb-0">Revenue</h6>
+                                    <div class="dropdown">
+                                      <button class="btn p-0" type="button" id="dropdownMenuButton3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
+                                      </button>
+                                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
+                                        <a class="dropdown-item d-flex align-items-center" href="#"><i data-feather="eye" class="icon-sm mr-2"></i> <span class="">View</span></a>
+                                        <a class="dropdown-item d-flex align-items-center" href="#"><i data-feather="edit-2" class="icon-sm mr-2"></i> <span class="">Edit</span></a>
+                                        <a class="dropdown-item d-flex align-items-center" href="#"><i data-feather="trash" class="icon-sm mr-2"></i> <span class="">Delete</span></a>
+                                        <a class="dropdown-item d-flex align-items-center" href="#"><i data-feather="printer" class="icon-sm mr-2"></i> <span class="">Print</span></a>
+                                        <a class="dropdown-item d-flex align-items-center" href="#"><i data-feather="download" class="icon-sm mr-2"></i> <span class="">Download</span></a>
+                                      </div>
                                     </div>
+                                  </div>
+                                  <div class="row align-items-start mb-2">
+                                    <div class="col-md-7">
+                                      <p class="text-muted tx-13 mb-3 mb-md-0">Revenue is the income that a business has from its normal business activities, usually from the sale of goods and services to customers.</p>
+                                    </div>
+                                    <div class="col-md-5 d-flex justify-content-md-end">
+                                      <div class="btn-group mb-3 mb-md-0" role="group" aria-label="Basic example">
+                                        <button type="button" class="btn btn-outline-primary">Today</button>
+                                        <button type="button" class="btn btn-outline-primary d-none d-md-block">Week</button>
+                                        <button type="button" class="btn btn-primary">Month</button>
+                                        <button type="button" class="btn btn-outline-primary">Year</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="flot-wrapper">
+                                    <div id="flotChart1" class="flot-chart"></div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div> <!-- row -->
 
-                                    <div class="w-summary-stats">
-                                        <div class="progress">
-                                            <div class="progress-bar bg-gradient-secondary" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                          <div class="row">
+                            <div class="col-lg-7 col-xl-8 grid-margin stretch-card">
+                              <div class="card">
+                                <div class="card-body">
+                                  <div class="d-flex justify-content-between align-items-baseline mb-2">
+                                    <h6 class="card-title mb-0">Monthly sales</h6>
+                                    <div class="dropdown mb-2">
+                                      <button class="btn p-0" type="button" id="dropdownMenuButton4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
+                                      </button>
+                                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton4">
+                                        <a class="dropdown-item d-flex align-items-center" href="#"><i data-feather="eye" class="icon-sm mr-2"></i> <span class="">View</span></a>
+                                        <a class="dropdown-item d-flex align-items-center" href="#"><i data-feather="edit-2" class="icon-sm mr-2"></i> <span class="">Edit</span></a>
+                                        <a class="dropdown-item d-flex align-items-center" href="#"><i data-feather="trash" class="icon-sm mr-2"></i> <span class="">Delete</span></a>
+                                        <a class="dropdown-item d-flex align-items-center" href="#"><i data-feather="printer" class="icon-sm mr-2"></i> <span class="">Print</span></a>
+                                        <a class="dropdown-item d-flex align-items-center" href="#"><i data-feather="download" class="icon-sm mr-2"></i> <span class="">Download</span></a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <p class="text-muted mb-4">Sales are activities related to selling or the number of goods or services sold in a given time period.</p>
+                                  <div class="monthly-sales-chart-wrapper">
+                                    <canvas id="monthly-sales-chart"></canvas>
+                                  </div>
+                                </div> 
+                              </div>
+                            </div>
+                            <div class="col-lg-5 col-xl-4 grid-margin stretch-card">
+                              <div class="card">
+                                <div class="card-body">
+                                  <div class="d-flex justify-content-between align-items-baseline mb-2">
+                                    <h6 class="card-title mb-0">Cloud storage</h6>
+                                    <div class="dropdown mb-2">
+                                      <button class="btn p-0" type="button" id="dropdownMenuButton5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
+                                      </button>
+                                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton5">
+                                        <a class="dropdown-item d-flex align-items-center" href="#"><i data-feather="eye" class="icon-sm mr-2"></i> <span class="">View</span></a>
+                                        <a class="dropdown-item d-flex align-items-center" href="#"><i data-feather="edit-2" class="icon-sm mr-2"></i> <span class="">Edit</span></a>
+                                        <a class="dropdown-item d-flex align-items-center" href="#"><i data-feather="trash" class="icon-sm mr-2"></i> <span class="">Delete</span></a>
+                                        <a class="dropdown-item d-flex align-items-center" href="#"><i data-feather="printer" class="icon-sm mr-2"></i> <span class="">Print</span></a>
+                                        <a class="dropdown-item d-flex align-items-center" href="#"><i data-feather="download" class="icon-sm mr-2"></i> <span class="">Download</span></a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div id="progressbar1" class="mx-auto"></div>
+                                  <div class="row mt-4 mb-3">
+                                    <div class="col-6 d-flex justify-content-end">
+                                      <div>
+                                        <label class="d-flex align-items-center justify-content-end tx-10 text-uppercase font-weight-medium">Total storage <span class="p-1 ml-1 rounded-circle bg-primary-muted"></span></label>
+                                        <h5 class="font-weight-bold mb-0 text-right">8TB</h5>
+                                      </div>
+                                    </div>
+                                    <div class="col-6">
+                                      <div>
+                                        <label class="d-flex align-items-center tx-10 text-uppercase font-weight-medium"><span class="p-1 mr-1 rounded-circle bg-primary"></span> Used storage</label>
+                                        <h5 class="font-weight-bold mb-0">6TB</h5>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <button class="btn btn-primary btn-block">Upgrade storage</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div> <!-- row -->
+
+                          <div class="row">
+                            <div class="col-lg-5 col-xl-4 grid-margin grid-margin-xl-0 stretch-card">
+                              <div class="card">
+                                <div class="card-body">
+                                  <div class="d-flex justify-content-between align-items-baseline mb-2">
+                                    <h6 class="card-title mb-0">Inbox</h6>
+                                    <div class="dropdown mb-2">
+                                      <button class="btn p-0" type="button" id="dropdownMenuButton6" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
+                                      </button>
+                                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton6">
+                                        <a class="dropdown-item d-flex align-items-center" href="#"><i data-feather="eye" class="icon-sm mr-2"></i> <span class="">View</span></a>
+                                        <a class="dropdown-item d-flex align-items-center" href="#"><i data-feather="edit-2" class="icon-sm mr-2"></i> <span class="">Edit</span></a>
+                                        <a class="dropdown-item d-flex align-items-center" href="#"><i data-feather="trash" class="icon-sm mr-2"></i> <span class="">Delete</span></a>
+                                        <a class="dropdown-item d-flex align-items-center" href="#"><i data-feather="printer" class="icon-sm mr-2"></i> <span class="">Print</span></a>
+                                        <a class="dropdown-item d-flex align-items-center" href="#"><i data-feather="download" class="icon-sm mr-2"></i> <span class="">Download</span></a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="d-flex flex-column">
+                                    <a href="#" class="d-flex align-items-center border-bottom pb-3">
+                                      <div class="mr-3">
+                                        <img src="../assets/images/faces/face2.jpg" class="rounded-circle wd-35" alt="user">
+                                      </div>
+                                      <div class="w-100">
+                                        <div class="d-flex justify-content-between">
+                                          <h6 class="text-body mb-2">Leonardo Payne</h6>
+                                          <p class="text-muted tx-12">12.30 PM</p>
                                         </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="summary-list">
-                                <div class="w-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
-                                </div>
-                                <div class="w-summary-details">
-
-                                    <div class="w-summary-info">
-                                        <h6>Profit</h6>
-                                        <p class="summary-count">$37,515</p>
-                                    </div>
-
-                                    <div class="w-summary-stats">
-                                        <div class="progress">
-                                            <div class="progress-bar bg-gradient-success" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <p class="text-muted tx-13">Hey! there I'm available...</p>
+                                      </div>
+                                    </a>
+                                    <a href="#" class="d-flex align-items-center border-bottom py-3">
+                                      <div class="mr-3">
+                                        <img src="../assets/images/faces/face3.jpg" class="rounded-circle wd-35" alt="user">
+                                      </div>
+                                      <div class="w-100">
+                                        <div class="d-flex justify-content-between">
+                                          <h6 class="text-body mb-2">Carl Henson</h6>
+                                          <p class="text-muted tx-12">02.14 AM</p>
                                         </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="summary-list">
-                                <div class="w-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-credit-card"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
-                                </div>
-                                <div class="w-summary-details">
-
-                                    <div class="w-summary-info">
-                                        <h6>Expenses</h6>
-                                        <p class="summary-count">$55,085</p>
-                                    </div>
-
-                                    <div class="w-summary-stats">
-                                        <div class="progress">
-                                            <div class="progress-bar bg-gradient-warning" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <p class="text-muted tx-13">I've finished it! See you so..</p>
+                                      </div>
+                                    </a>
+                                    <a href="#" class="d-flex align-items-center border-bottom py-3">
+                                      <div class="mr-3">
+                                        <img src="../assets/images/faces/face4.jpg" class="rounded-circle wd-35" alt="user">
+                                      </div>
+                                      <div class="w-100">
+                                        <div class="d-flex justify-content-between">
+                                          <h6 class="text-body mb-2">Jensen Combs</h6>
+                                          <p class="text-muted tx-12">08.22 PM</p>
                                         </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xl-4 col-lg-12 col-md-6 col-sm-12 col-12 layout-spacing">
-                <div class="widget-one">
-                    <div class="widget-content">
-                        <div class="w-numeric-value">
-                            <div class="w-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-cart"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
-                            </div>
-                            <div class="w-content">
-                                <span class="w-value">3,192</span>
-                                <span class="w-numeric-title">Total Orders</span>
-                            </div>
-                        </div>
-                        <div class="w-chart">
-                            <div id="total-orders"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xl-5 col-lg-12 col-md-6 col-sm-12 col-12 layout-spacing">
-                <div class="widget widget-table-one">
-                    <div class="widget-heading">
-                        <h5 class="">Transactions</h5>
-                    </div>
-
-                    <div class="widget-content">
-                        <div class="transactions-list">
-                            <div class="t-item">
-                                <div class="t-company-name">
-                                    <div class="t-icon">
-                                        <div class="icon">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                                        <p class="text-muted tx-13">This template is awesome!</p>
+                                      </div>
+                                    </a>
+                                    <a href="#" class="d-flex align-items-center border-bottom py-3">
+                                      <div class="mr-3">
+                                        <img src="../assets/images/faces/face5.jpg" class="rounded-circle wd-35" alt="user">
+                                      </div>
+                                      <div class="w-100">
+                                        <div class="d-flex justify-content-between">
+                                          <h6 class="text-body mb-2">Amiah Burton</h6>
+                                          <p class="text-muted tx-12">05.49 AM</p>
                                         </div>
-                                    </div>
-                                    <div class="t-name">
-                                        <h4>Electricity Bill</h4>
-                                        <p class="meta-date">4 Aug 1:00PM</p>
-                                    </div>
-
-                                </div>
-                                <div class="t-rate rate-dec">
-                                    <p><span>-$16.44</span> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-down"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg></p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="transactions-list">
-                            <div class="t-item">
-                                <div class="t-company-name">
-                                    <div class="t-icon">
-                                        <div class="avatar avatar-xl">
-                                            <span class="avatar-title rounded-circle">SP</span>
+                                        <p class="text-muted tx-13">Nice to meet you</p>
+                                      </div>
+                                    </a>
+                                    <a href="#" class="d-flex align-items-center border-bottom py-3">
+                                      <div class="mr-3">
+                                        <img src="../assets/images/faces/face6.jpg" class="rounded-circle wd-35" alt="user">
+                                      </div>
+                                      <div class="w-100">
+                                        <div class="d-flex justify-content-between">
+                                          <h6 class="text-body mb-2">Yaretzi Mayo</h6>
+                                          <p class="text-muted tx-12">01.19 AM</p>
                                         </div>
-                                    </div>
-                                    <div class="t-name">
-                                        <h4>Shaun Park</h4>
-                                        <p class="meta-date">4 Aug 1:00PM</p>
-                                    </div>
+                                        <p class="text-muted tx-13">Hey! there I'm available...</p>
+                                      </div>
+                                    </a>
+                                  </div>
                                 </div>
-                                <div class="t-rate rate-inc">
-                                    <p><span>+$66.44</span> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-up"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg></p>
-                                </div>
+                              </div>
                             </div>
-                        </div>
-
-                        <div class="transactions-list">
-                            <div class="t-item">
-                                <div class="t-company-name">
-                                    <div class="t-icon">
-                                        <div class="avatar avatar-xl">
-                                            <span class="avatar-title rounded-circle">AD</span>
-                                        </div>
+                            <div class="col-lg-7 col-xl-8 stretch-card">
+                              <div class="card">
+                                <div class="card-body">
+                                  <div class="d-flex justify-content-between align-items-baseline mb-2">
+                                    <h6 class="card-title mb-0">Projects</h6>
+                                    <div class="dropdown mb-2">
+                                      <button class="btn p-0" type="button" id="dropdownMenuButton7" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
+                                      </button>
+                                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton7">
+                                        <a class="dropdown-item d-flex align-items-center" href="#"><i data-feather="eye" class="icon-sm mr-2"></i> <span class="">View</span></a>
+                                        <a class="dropdown-item d-flex align-items-center" href="#"><i data-feather="edit-2" class="icon-sm mr-2"></i> <span class="">Edit</span></a>
+                                        <a class="dropdown-item d-flex align-items-center" href="#"><i data-feather="trash" class="icon-sm mr-2"></i> <span class="">Delete</span></a>
+                                        <a class="dropdown-item d-flex align-items-center" href="#"><i data-feather="printer" class="icon-sm mr-2"></i> <span class="">Print</span></a>
+                                        <a class="dropdown-item d-flex align-items-center" href="#"><i data-feather="download" class="icon-sm mr-2"></i> <span class="">Download</span></a>
+                                      </div>
                                     </div>
-                                    <div class="t-name">
-                                        <h4>Amy Diaz</h4>
-                                        <p class="meta-date">4 Aug 1:00PM</p>
-                                    </div>
-
-                                </div>
-                                <div class="t-rate rate-inc">
-                                    <p><span>+$66.44</span> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-up"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg></p>
-                                </div>
+                                  </div>
+                                  <div class="table-responsive">
+                                    <table class="table table-hover mb-0">
+                                      <thead>
+                                        <tr>
+                                          <th class="pt-0">#</th>
+                                          <th class="pt-0">Project Name</th>
+                                          <th class="pt-0">Start Date</th>
+                                          <th class="pt-0">Due Date</th>
+                                          <th class="pt-0">Status</th>
+                                          <th class="pt-0">Assign</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        <tr>
+                                          <td>1</td>
+                                          <td>NobleUI jQuery</td>
+                                          <td>01/01/2019</td>
+                                          <td>26/04/2019</td>
+                                          <td><span class="badge badge-danger">Released</span></td>
+                                          <td>Leonardo Payne</td>
+                                        </tr>
+                                        <tr>
+                                          <td>2</td>
+                                          <td>NobleUI Angular</td>
+                                          <td>01/01/2019</td>
+                                          <td>26/04/2019</td>
+                                          <td><span class="badge badge-success">Review</span></td>
+                                          <td>Carl Henson</td>
+                                        </tr>
+                                        <tr>
+                                          <td>3</td>
+                                          <td>NobleUI ReactJs</td>
+                                          <td>01/05/2019</td>
+                                          <td>10/09/2019</td>
+                                          <td><span class="badge badge-info-muted">Pending</span></td>
+                                          <td>Jensen Combs</td>
+                                        </tr>
+                                        <tr>
+                                          <td>4</td>
+                                          <td>NobleUI VueJs</td>
+                                          <td>01/01/2019</td>
+                                          <td>31/11/2019</td>
+                                          <td><span class="badge badge-warning">Work in Progress</span>
+                                          </td>
+                                          <td>Amiah Burton</td>
+                                        </tr>
+                                        <tr>
+                                          <td>5</td>
+                                          <td>NobleUI Laravel</td>
+                                          <td>01/01/2019</td>
+                                          <td>31/12/2019</td>
+                                          <td><span class="badge badge-danger-muted text-white">Coming soon</span></td>
+                                          <td>Yaretzi Mayo</td>
+                                        </tr>
+                                        <tr>
+                                          <td>6</td>
+                                          <td>NobleUI NodeJs</td>
+                                          <td>01/01/2019</td>
+                                          <td>31/12/2019</td>
+                                          <td><span class="badge badge-primary">Coming soon</span></td>
+                                          <td>Carl Henson</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="border-bottom">3</td>
+                                          <td class="border-bottom">NobleUI EmberJs</td>
+                                          <td class="border-bottom">01/05/2019</td>
+                                          <td class="border-bottom">10/11/2019</td>
+                                          <td class="border-bottom"><span class="badge badge-info-muted">Pending</span></td>
+                                          <td class="border-bottom">Jensen Combs</td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                </div> 
+                              </div>
                             </div>
-                        </div>
+                          </div> <!-- row --> --}}
+                          @yield('content')
 
-                        <div class="transactions-list">
-                            <div class="t-item">
-                                <div class="t-company-name">
-                                    <div class="t-icon">
-                                        <div class="icon">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                                        </div>
-                                    </div>
-                                    <div class="t-name">
-                                        <h4>Netflix</h4>
-                                        <p class="meta-date">4 Aug 1:00PM</p>
-                                    </div>
-
-                                </div>
-                                <div class="t-rate rate-dec">
-                                    <p><span>-$32.00</span> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-down"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
 
-            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12 layout-spacing">
-
-                <div class="widget widget-activity-four">
-
-                    <div class="widget-heading">
-                        <h5 class="">Recent Activities</h5>
-                    </div>
-
-                    <div class="widget-content">
-
-                        <div class="mt-container mx-auto">
-                            <div class="timeline-line">
-
-                                <div class="item-timeline timeline-primary">
-                                    <div class="t-dot" data-original-title="" title="">
-                                    </div>
-                                    <div class="t-text">
-                                        <p><span>Updated</span> Server Logs</p>
-                                        <span class="badge badge-danger">Pending</span>
-                                        <p class="t-time">Just Now</p>
-                                    </div>
-                                </div>
-
-                                <div class="item-timeline timeline-success">
-                                    <div class="t-dot" data-original-title="" title="">
-                                    </div>
-                                    <div class="t-text">
-                                        <p>Send Mail to <a href="javascript:void(0);">HR</a> and <a href="javascript:void(0);">Admin</a></p>
-                                        <span class="badge badge-success">Completed</span>
-                                        <p class="t-time">2 min ago</p>
-                                    </div>
-                                </div>
-
-                                <div class="item-timeline  timeline-danger">
-                                    <div class="t-dot" data-original-title="" title="">
-                                    </div>
-                                    <div class="t-text">
-                                        <p>Backup <span>Files EOD</span></p>
-                                        <span class="badge badge-danger">Pending</span>
-                                        <p class="t-time">14:00</p>
-                                    </div>
-                                </div>
-
-                                <div class="item-timeline  timeline-dark">
-                                    <div class="t-dot" data-original-title="" title="">
-                                    </div>
-                                    <div class="t-text">
-                                        <p>Collect documents from <a href="javascript:void(0);">Sara</a></p>
-                                        <span class="badge badge-success">Completed</span>
-                                        <p class="t-time">16:00</p>
-                                    </div>
-                                </div>
-
-                                <div class="item-timeline  timeline-warning">
-                                    <div class="t-dot" data-original-title="" title="">
-                                    </div>
-                                    <div class="t-text">
-                                        <p>Conference call with <a href="javascript:void(0);">Marketing Manager</a>.</p>
-                                        <span class="badge badge-primary">In progress</span>
-                                        <p class="t-time">17:00</p>
-                                    </div>
-                                </div>
-
-                                <div class="item-timeline  timeline-secondary">
-                                    <div class="t-dot" data-original-title="" title="">
-                                    </div>
-                                    <div class="t-text">
-                                        <p>Rebooted Server</p>
-                                        <span class="badge badge-success">Completed</span>
-                                        <p class="t-time">17:00</p>
-                                    </div>
-                                </div>
-
-                                <div class="item-timeline  timeline-warning">
-                                    <div class="t-dot" data-original-title="" title="">
-                                    </div>
-                                    <div class="t-text">
-                                        <p>Send contract details to Freelancer</p>
-                                        <span class="badge badge-danger">Pending</span>
-                                        <p class="t-time">18:00</p>
-                                    </div>
-                                </div>
-
-                                <div class="item-timeline  timeline-dark">
-                                    <div class="t-dot" data-original-title="" title="">
-                                    </div>
-                                    <div class="t-text">
-                                        <p>Kelly want to increase the time of the project.</p>
-                                        <span class="badge badge-primary">In Progress</span>
-                                        <p class="t-time">19:00</p>
-                                    </div>
-                                </div>
-
-                                <div class="item-timeline  timeline-success">
-                                    <div class="t-dot" data-original-title="" title="">
-                                    </div>
-                                    <div class="t-text">
-                                        <p>Server down for maintanence</p>
-                                        <span class="badge badge-success">Completed</span>
-                                        <p class="t-time">19:00</p>
-                                    </div>
-                                </div>
-
-                                <div class="item-timeline  timeline-secondary">
-                                    <div class="t-dot" data-original-title="" title="">
-                                    </div>
-                                    <div class="t-text">
-                                        <p>Malicious link detected</p>
-                                        <span class="badge badge-warning">Block</span>
-                                        <p class="t-time">20:00</p>
-                                    </div>
-                                </div>
-
-                                <div class="item-timeline  timeline-warning">
-                                    <div class="t-dot" data-original-title="" title="">
-                                    </div>
-                                    <div class="t-text">
-                                        <p>Rebooted Server</p>
-                                        <span class="badge badge-success">Completed</span>
-                                        <p class="t-time">23:00</p>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div class="tm-action-btn">
-                            <button class="btn">View All <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 layout-spacing">
-
-                <div class="widget widget-account-invoice-one">
-
-                    <div class="widget-heading">
-                        <h5 class="">Account Info</h5>
-                    </div>
-
-                    <div class="widget-content">
-                        <div class="invoice-box">
-
-                            <div class="acc-total-info">
-                                <h5>Balance</h5>
-                                <p class="acc-amount">$470</p>
-                            </div>
-
-                            <div class="inv-detail">
-                                <div class="info-detail-1">
-                                    <p>Monthly Plan</p>
-                                    <p>$ 199.0</p>
-                                </div>
-                                <div class="info-detail-2">
-                                    <p>Taxes</p>
-                                    <p>$ 17.82</p>
-                                </div>
-                                <div class="info-detail-3 info-sub">
-                                    <div class="info-detail">
-                                        <p>Extras this month</p>
-                                        <p>$ -0.68</p>
-                                    </div>
-                                    <div class="info-detail-sub">
-                                        <p>Netflix Yearly Subscription</p>
-                                        <p>$ 0</p>
-                                    </div>
-                                    <div class="info-detail-sub">
-                                        <p>Others</p>
-                                        <p>$ -0.68</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="inv-action">
-                                <a href="#" class="btn btn-dark">Summary</a>
-                                <a href="#" class="btn btn-danger">Transfer</a>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-12 layout-spacing">
-                <div class="widget widget-table-two">
-
-                    <div class="widget-heading">
-                        <h5 class="">Recent Orders</h5>
-                    </div>
-
-                    <div class="widget-content">
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th><div class="th-content">Customer</div></th>
-                                        <th><div class="th-content">Product</div></th>
-                                        <th><div class="th-content">Invoice</div></th>
-                                        <th><div class="th-content th-heading">Price</div></th>
-                                        <th><div class="th-content">Status</div></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td><div class="td-content customer-name"><img src="{{ asset('assets/img/profile-7.jpg') }}" alt="avatar">Andy King</div></td>
-                                        <td><div class="td-content product-brand">Nike Sport</div></td>
-                                        <td><div class="td-content">#76894</div></td>
-                                        <td><div class="td-content pricing"><span class="">$88.00</span></div></td>
-                                        <td><div class="td-content"><span class="badge outline-badge-primary">Shipped</span></div></td>
-                                    </tr>
-                                    <tr>
-                                        <td><div class="td-content customer-name"><img src="{{ asset('assets/img/profile-4.jpg') }}" alt="avatar">Irene Collins</div></td>
-                                        <td><div class="td-content product-brand">Speakers</div></td>
-                                        <td><div class="td-content">#75844</div></td>
-                                        <td><div class="td-content pricing"><span class="">$84.00</span></div></td>
-                                        <td><div class="td-content"><span class="badge outline-badge-success">Paid</span></div></td>
-                                    </tr>
-                                    <tr>
-                                        <td><div class="td-content customer-name"><img src="{{ asset('assets/img/profile-10.jpg') }}" alt="avatar">Laurie Fox</div></td>
-                                        <td><div class="td-content product-brand">Camera</div></td>
-                                        <td><div class="td-content">#66894</div></td>
-                                        <td><div class="td-content pricing"><span class="">$126.04</span></div></td>
-                                        <td><div class="td-content"><span class="badge outline-badge-danger">Pending</span></div></td>
-                                    </tr>
-                                    <tr>
-                                        <td><div class="td-content customer-name"><img src="{{ asset('assets/img/profile-13.jpg') }}" alt="avatar">Luke Ivory</div></td>
-                                        <td><div class="td-content product-brand">Headphone</div></td>
-                                        <td><div class="td-content">#46894</div></td>
-                                        <td><div class="td-content pricing"><span class="">$56.07</span></div></td>
-                                        <td><div class="td-content"><span class="badge outline-badge-success">Paid</span></div></td>
-                                    </tr>
-                                    <tr>
-                                        <td><div class="td-content customer-name"><img src="{{ asset('assets/img/profile-5.jpg') }}" alt="avatar">Ryan Collins</div></td>
-                                        <td><div class="td-content product-brand">Sport</div></td>
-                                        <td><div class="td-content">#89891</div></td>
-                                        <td><div class="td-content pricing"><span class="">$108.09</span></div></td>
-                                        <td><div class="td-content"><span class="badge outline-badge-primary">Shipped</span></div></td>
-                                    </tr>
-                                    <tr>
-                                        <td><div class="td-content customer-name"><img src="{{ asset('assets/img/profile-6.jpg') }}" alt="avatar">Nia Hillyer</div></td>
-                                        <td><div class="td-content product-brand">Sunglasses</div></td>
-                                        <td><div class="td-content">#26974</div></td>
-                                        <td><div class="td-content pricing"><span class="">$168.09</span></div></td>
-                                        <td><div class="td-content"><span class="badge outline-badge-primary">Shipped</span></div></td>
-                                    </tr>
-                                    <tr>
-                                        <td><div class="td-content customer-name"><img src="{{ asset('assets/img/profile-11.jpg') }}" alt="avatar">Sonia Shaw</div></td>
-                                        <td><div class="td-content product-brand">Watch</div></td>
-                                        <td><div class="td-content">#76844</div></td>
-                                        <td><div class="td-content pricing"><span class="">$110.00</span></div></td>
-                                        <td><div class="td-content"><span class="badge outline-badge-success">Paid</span></div></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-12 layout-spacing">
-                <div class="widget widget-table-three">
-
-                    <div class="widget-heading">
-                        <h5 class="">Top Selling Product</h5>
-                    </div>
-
-                    <div class="widget-content">
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th><div class="th-content">Product</div></th>
-                                        <th><div class="th-content th-heading">Price</div></th>
-                                        <th><div class="th-content th-heading">Discount</div></th>
-                                        <th><div class="th-content">Sold</div></th>
-                                        <th><div class="th-content">Source</div></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td><div class="td-content product-name"><img src="{{ asset('assets/img/speaker.jpg') }}" alt="product">Speakers</div></td>
-                                        <td><div class="td-content"><span class="pricing">$84.00</span></div></td>
-                                        <td><div class="td-content"><span class="discount-pricing">$10.00</span></div></td>
-                                        <td><div class="td-content">240</div></td>
-                                        <td><div class="td-content"><a href="javascript:void(0);" class="">Direct</a></div></td>
-                                    </tr>
-                                    <tr>
-                                        <td><div class="td-content product-name"><img src="{{ asset('assets/img/sunglass.jpg') }}" alt="product">Sunglasses</div></td>
-                                        <td><div class="td-content"><span class="pricing">$56.07</span></div></td>
-                                        <td><div class="td-content"><span class="discount-pricing">$5.07</span></div></td>
-                                        <td><div class="td-content">190</div></td>
-                                        <td><div class="td-content"><a href="javascript:void(0);" class="">Google</a></div></td>
-                                    </tr>
-                                    <tr>
-                                        <td><div class="td-content product-name"><img src="{{ asset('assets/img/watch.jpg') }}" alt="product">Watch</div></td>
-                                        <td><div class="td-content"><span class="pricing">$88.00</span></div></td>
-                                        <td><div class="td-content"><span class="discount-pricing">$20.00</span></div></td>
-                                        <td><div class="td-content">66</div></td>
-                                        <td><div class="td-content"><a href="javascript:void(0);" class="">Ads</a></div></td>
-                                    </tr>
-                                    <tr>
-                                        <td><div class="td-content product-name"><img src="{{ asset('assets/img/laptop.jpg') }}" alt="product">Laptop</div></td>
-                                        <td><div class="td-content"><span class="pricing">$110.00</span></div></td>
-                                        <td><div class="td-content"><span class="discount-pricing">$33.00</span></div></td>
-                                        <td><div class="td-content">35</div></td>
-                                        <td><div class="td-content"><a href="javascript:void(0);" class="">Email</a></div></td>
-                                    </tr>
-                                    <tr>
-                                        <td><div class="td-content product-name"><img src="{{ asset('assets/img/camera.jpg') }}" alt="product">Camera</div></td>
-                                        <td><div class="td-content"><span class="pricing">$126.04</span></div></td>
-                                        <td><div class="td-content"><span class="discount-pricing">$26.04</span></div></td>
-                                        <td><div class="td-content">30</div></td>
-                                        <td><div class="td-content"><a href="javascript:void(0);" class="">Referral</a></div></td>
-                                    </tr>
-                                    <tr>
-                                        <td><div class="td-content product-name"><img src="{{ asset('assets/img/shoes.jpg') }}" alt="product">Shoes</div></td>
-                                        <td><div class="td-content"><span class="pricing">$108.09</span></div></td>
-                                        <td><div class="td-content"><span class="discount-pricing">$47.09</span></div></td>
-                                        <td><div class="td-content">130</div></td>
-                                        <td><div class="td-content"><a href="javascript:void(0);" class="">Google</a></div></td>
-                                    </tr>
-                                    <tr>
-                                        <td><div class="td-content product-name"><img src="{{ asset('assets/img/headphones.jpg') }}" alt="product">Headphone</div></td>
-                                        <td><div class="td-content"><span class="pricing">$168.09</span></div></td>
-                                        <td><div class="td-content"><span class="discount-pricing">$60.09</span></div></td>
-                                        <td><div class="td-content">170</div></td>
-                                        <td><div class="td-content"><a href="javascript:void(0);" class="">Ads</a></div></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-    <div class="footer-wrapper">
-        <div class="footer-section f-section-1">
-            <p class="">Copyright © 2020 <a target="_blank" href="https://designreset.com/">DesignReset</a>, All rights reserved.</p>
-        </div>
-        <div class="footer-section f-section-2">
-            <p class="">Coded with <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></p>
+            <!-- partial:partials/_footer.html -->
+           @include('partials._footer')
+            <!-- partial -->
+        
         </div>
     </div>
-</div> --}}
 
-@endsection
+    <!-- core:js -->
+    <script src="../assets/vendors/core/core.js"></script>
+    <!-- endinject -->
+  <!-- plugin js for this page -->
+  <script src="{{ asset('assets/vendors/chartjs/Chart.min.js') }}"></script>
+  <script src="{{ asset('assets/vendors/jquery.flot/jquery.flot.js') }}"></script>
+  <script src="{{ asset('assets/vendors/jquery.flot/jquery.flot.resize.js') }}"></script>
+  <script src="{{ asset('assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js') }}"></script>
+  <script src="{{ asset('assets/vendors/apexcharts/apexcharts.min.js') }}"></script>
+  <script src="{{ asset('assets/vendors/progressbar.js/progressbar.min.js') }}"></script>
+    <!-- end plugin js for this page -->
+    <!-- inject:js -->
+    <script src="{{ asset('assets/vendors/feather-icons/feather.min.js') }}"></script>
+    <script src="{{ asset('assets/js/template.js') }}"></script>
+    <!-- endinject -->
+  <!-- custom js for this page -->
+  <script src="{{ asset('assets/js/dashboard.js') }}"></script>
+  <script src="{{ asset('assets/js/datepicker.js') }}"></script>
+    <!-- end custom js for this page -->
+</body>
+</html>    
+<!-- Localized -->

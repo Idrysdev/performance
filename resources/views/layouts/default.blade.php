@@ -1,77 +1,85 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
-<!-- Mirrored from designreset.com/cork/ltr/demo4/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 26 Sep 2020 21:52:34 GMT -->
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
-    <title>Sales Admin | CORK - Multipurpose Bootstrap Dashboard Template </title>
-    <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/favicon.ico') }}"/>
-    <link href="{{ asset('assets/css/loader.css') }}" rel="stylesheet" type="text/css" />
-    <script src="{{ asset('assets/js/loader.js') }}"></script>
-    <!-- BEGIN GLOBAL MANDATORY STYLES -->
-    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
-    <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('assets/css/plugins.css') }}" rel="stylesheet" type="text/css" />
-    <!-- END GLOBAL MANDATORY STYLES -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>NobleUI Responsive Bootstrap 4 Dashboard Template</title>
+    <!-- core:css -->
+    <link rel="stylesheet" href="{{ asset('assets/vendors/core/core.css') }}">
+    <!-- endinject -->
+  <!-- plugin css for this page -->
+    <link rel="stylesheet" href="{{ asset('assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css') }}">
+    <!-- end plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="{{ asset('assets/fonts/feather-font/css/iconfont.css') }}">
+    <!-- endinject -->
+  <!-- Layout styles -->  
+    <link rel="stylesheet" href="{{ asset('assets/css/demo_1/style.css') }}">
+  <!-- End layout styles -->
+  <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}" />
+  <!-- Global site tag (gtag.js) - Google Analytics start -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-146586338-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-    <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
-    <link href="{{ asset('plugins/apex/apexcharts.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('assets/css/dashboard/dash_1.css') }}" rel="stylesheet" type="text/css" />
-    <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
-    @livewireStyles
-
+    gtag('config', 'UA-146586338-1');
+  </script>
+  <!-- Google Analytics end -->
+  @yield('styles')
 </head>
 <body>
-    <!-- BEGIN LOADER -->
-    <div id="load_screen"> <div class="loader"> <div class="loader-content">
-        <div class="spinner-grow align-self-center"></div>
-    </div></div></div>
-    <!--  END LOADER -->
+    <div class="main-wrapper">
 
-    <!--  BEGIN NAVBAR  -->
-            @include('includes._navbar')
-    <!--  END NAVBAR  -->
+        <!-- partial:partials/_sidebar.html -->
+           @include('partials._sidebar')
+        <!-- partial -->
+    
+        <div class="page-wrapper">
+                    
+            <!-- partial:partials/_navbar.html -->
+           @include('partials._navbar')
+            <!-- partial -->
 
-    <!--  BEGIN MAIN CONTAINER  -->
-    <div class="main-container" id="container">
+            <div class="page-content">
+                {{-- <div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
+                    <div>
+                      <h4 class="mb-3 mb-md-0">Welcome to Dashboard</h4>
+                    </div>
+                </div> --}}
+                @yield('content')
+            </div>
 
-        <div class="overlay"></div>
-        <div class="search-overlay"></div>
-
-        <!--  BEGIN SIDEBAR  -->
-                @include('includes._sidebar')
-        <!--  END SIDEBAR  -->
-
-        <!--  BEGIN CONTENT AREA  -->
-                 @yield('content')
-        <!--  END CONTENT AREA  -->
-
+            <!-- partial:partials/_footer.html -->
+           @include('partials._footer')
+            <!-- partial -->
+        
+        </div>
     </div>
-    <!-- END MAIN CONTAINER -->
 
-    <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
-    <script src="{{ asset('assets/js/libs/jquery-3.1.1.min.js') }}"></script>
-    <script src="{{ asset('bootstrap/js/popper.min.js') }}"></script>
-    <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('plugins/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
-    <script src="{{ asset('assets/js/app.js') }}"></script>
-    <script>
-        $(document).ready(function() {
-            App.init();
-        });
-    </script>
-    <script src="{{ asset('assets/js/custom.js') }}"></script>
-    <!-- END GLOBAL MANDATORY SCRIPTS -->
-
-    <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
-    <script src="{{ asset('plugins/apex/apexcharts.min.js') }}"></script>
-    <script src="{{ asset('assets/js/dashboard/dash_1.js') }}"></script>
-    <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
-    @livewireScripts
-
+    <!-- core:js -->
+    <script src="{{ asset('assets/vendors/core/core.js') }}"></script>
+    <!-- endinject -->
+  <!-- plugin js for this page -->
+  <script src="{{ asset('assets/vendors/chartjs/Chart.min.js') }}"></script>
+  <script src="{{ asset('assets/vendors/jquery.flot/jquery.flot.js') }}"></script>
+  <script src="{{ asset('assets/vendors/jquery.flot/jquery.flot.resize.js') }}"></script>
+  <script src="{{ asset('assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js') }}"></script>
+  <script src="{{ asset('assets/vendors/apexcharts/apexcharts.min.js') }}"></script>
+  <script src="{{ asset('assets/vendors/progressbar.js/progressbar.min.js') }}"></script>
+    <!-- end plugin js for this page -->
+    <!-- inject:js -->
+    <script src="{{ asset('assets/vendors/feather-icons/feather.min.js') }}"></script>
+    <script src="{{ asset('assets/js/template.js') }}"></script>
+    <!-- endinject -->
+  <!-- custom js for this page -->
+  <script src="{{ asset('assets/js/dashboard.js') }}"></script>
+  <script src="{{ asset('assets/js/datepicker.js') }}"></script>
+    <!-- end custom js for this page -->
+    @yield('scripts')
 </body>
-
-<!-- Mirrored from designreset.com/cork/ltr/demo4/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 26 Sep 2020 21:52:41 GMT -->
-</html>
+</html>    
+<!-- Localized -->
