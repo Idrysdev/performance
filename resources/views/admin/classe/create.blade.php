@@ -28,18 +28,20 @@
 @endsection
 
 @section('content')
+<h3 class="page-title">Les Classes</h3>
+<p>Créer une nouvelle classe</p>
 <div class="row">
     <div class="col-md-8">
         <div class="card">
             <div class="card-body">
                 <div class="head">
-                    <h5 class="mb-2">Toutes les catégories</h5>
-                    <p>Liste de toutes les catégories ajoutées</p>  
+                    <h5 class="mb-2">Toutes les Classes</h5>
+                    <p>Liste de toutes les classes ajoutées</p>  
                 </div>
                 <br>
 
                 <div class="table-responsive">
-                    <table id="dataTableExample" class="table categories">
+                    <table id="dataTableExample" class="table classes">
                         <thead>
                             <tr>
                                 <th width="30%">Libellé</th>
@@ -60,7 +62,7 @@
                              <form action="{{ route('classe.destroy',$classe) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                    <a href="{{ route('classe.edit',$classe) }}" class="btn btn-dark btn-xs"> <i class="mdi mdi-pencil"></i>edit</a>
+                                    <a href="{{ route('classe.edit',$classe) }}" class="btn btn-primary btn-xs"> <i class="mdi mdi-pencil"></i>edit</a>
                                     <button class="btn btn-danger btn-xs delete"><i class="mdi mdi-delete"></i>delete</button>
                             </form>
 
@@ -118,18 +120,18 @@
  <script src="{{ asset('assets/vendors/datatables.net/jquery.dataTables.js') }}"></script>
 <script src="{{ asset('assets/vendors/datatables.net-bs4/dataTables.bootstrap4.js') }}"></script>
 <script src="{{ asset('js/datatable.js') }}"></script>
-<script>
+{{-- <script>
     $(document).ready(function () {
-        $('.categories').on('click', '.delete', function (event) {
+        $('.classes').on('click', '.delete', function (event) {
             event.preventDefault();
 
             let href = $(this).attr('href');
-            if(confirm('Voulez-vous supprimer cette catégorie?')){
-                window.location = href;
+            if(confirm('Voulez-vous supprimer cette classes ?')){
+                window.location=href;
             }
         });
     });
-</script>
+</script> --}}
 @endsection
 
 

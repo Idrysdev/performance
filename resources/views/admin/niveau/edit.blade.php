@@ -28,6 +28,8 @@
 @endsection
 
 @section('content')
+<h3 class="page-title">Les Niveaux</h3>
+<p>Modifier un niveau</p>
 <div class="row">
     <div class="col-md-8">
         <div class="card">
@@ -77,8 +79,8 @@
         <div class="card">
             <div class="card-body">
                 <div class="head">
-                    <h5 class="mb-2">Ajouter une catégorie</h5>
-                    <p>Créez une nouvelle rubrique pour des actualités figurants sur le site</p>
+                    <h5 class="mb-2">Modifier un niveau</h5>
+                    <p>Modifier le  niveau <strong>{{$niveau->libelle}}</strong></p>
                 </div>
                 <br>
                 <form class="forms-sample" method="POST" action="{{ route('niveau.update',$niveau) }}">
@@ -87,15 +89,13 @@
                     <label for="libelle">Libellé</label>
                     <div class="input-group mb-4">
                             <input type="text" name="libelle" value="{{$niveau->libelle}}" class="form-control" placeholder=".." aria-label="switch">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <label class="switch s-primary mb-0">
-                                        <input type="checkbox" name="active"  {{$niveau->active == 1 ? 'checked' : ''}}>
-                                        <span class="slider"></span>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
+                    </div>
+                    <div class="input-group mb-4">
+                      <select name="active" class="form-control" id="active">
+                          <option value="1">actif</option>
+                          <option value="2">Inactif</option>
+                      </select>
+                    </div>
 
                     <button type="submit" class="btn btn-primary mr-2">Ajouter</button>
                     <button type="reset" class="btn btn-light">Annuler</button>

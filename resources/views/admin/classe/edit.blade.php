@@ -28,13 +28,15 @@
 @endsection
 
 @section('content')
+<h3 class="page-title">Les Classes</h3>
+<p>Créer une nouvelle classe</p>
 <div class="row">
     <div class="col-md-8">
         <div class="card">
             <div class="card-body">
                 <div class="head">
-                    <h5 class="mb-2">Modifier la catégorie</h5>
-                    <p>Liste de toutes les catégories ajoutées</p>  
+                    <h5 class="mb-2">Toutes les Classes</h5>
+                    <p>Liste de toutes les classes ajoutées</p>  
                 </div>
                 <br>
 
@@ -60,7 +62,7 @@
                              <form action="{{ route('classe.destroy',$classe) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                    <a href="{{ route('classe.edit',$classe) }}" class="btn btn-dark btn-xs"> <i class="mdi mdi-pencil"></i>edit</a>
+                                    <a href="{{ route('classe.edit',$classe) }}" class="btn btn-primary btn-xs"> <i class="mdi mdi-pencil"></i>edit</a>
                                     <button class="btn btn-danger btn-xs delete"><i class="mdi mdi-delete"></i>delete</button>
                             </form>
 

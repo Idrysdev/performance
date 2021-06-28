@@ -28,13 +28,15 @@
 @endsection
 
 @section('content')
+<h3 class="page-title">Les Niveaux</h3>
+<p>Créer un niveau</p>
 <div class="row">
     <div class="col-md-8">
         <div class="card">
             <div class="card-body">
                 <div class="head">
-                    <h5 class="mb-2">Toutes les catégories</h5>
-                    <p>Liste de toutes les catégories ajoutées</p>  
+                    <h5 class="mb-2">Tous les niveaux</h5>
+                    <p>Liste de tous les niveaux ajoutées</p>  
                 </div>
                 <br>
 
@@ -60,7 +62,7 @@
                              <form action="{{ route('niveau.destroy',$niveau) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                    <a href="{{ route('niveau.edit',$niveau) }}" class="btn btn-dark btn-xs"> <i class="mdi mdi-pencil"></i>edit</a>
+                                    <a href="{{ route('niveau.edit',$niveau) }}" class="btn btn-primary btn-xs"> <i class="mdi mdi-pencil"></i>edit</a>
                                     <button class="btn btn-danger btn-xs delete"><i class="mdi mdi-delete"></i>delete</button>
                             </form>
 
@@ -77,24 +79,23 @@
         <div class="card">
             <div class="card-body">
                 <div class="head">
-                    <h5 class="mb-2">Ajouter une catégorie</h5>
-                    <p>Créez une nouvelle rubrique pour des actualités figurants sur le site</p>
+                    <h5 class="mb-2">Ajouter un niveau</h5>
+                  
+                    <p>Créez un niveau  pour des classe figurants sur le site</p>
                 </div>
                 <br>
                 <form class="forms-sample" method="POST" action="{{ route('niveau.store') }}">
                     @csrf
                     <label for="libelle">Libellé</label>
                     <div class="input-group mb-4">
-                            <input type="text" name="libelle" class="form-control" placeholder=".." aria-label="switch">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <label class="switch s-primary mb-0">
-                                        <input type="checkbox" name="active" checked="">
-                                        <span class="slider"></span>
-                                    </label>
-                                </div>
-                            </div>
+                            <input type="text" name="libelle"  class="form-control" placeholder=".." aria-label="switch">
                         </div>
+                        <div class="input-group mb-4">
+                      <select name="active" class="form-control" id="active">
+                          <option value="1">actif</option>
+                          <option value="2">Inactif</option>
+                      </select>
+                    </div>
 
                     <button type="submit" class="btn btn-primary mr-2">Ajouter</button>
                     <button type="reset" class="btn btn-light">Annuler</button>
@@ -114,7 +115,7 @@
  <script src="{{ asset('assets/vendors/datatables.net/jquery.dataTables.js') }}"></script>
 <script src="{{ asset('assets/vendors/datatables.net-bs4/dataTables.bootstrap4.js') }}"></script>
 <script src="{{ asset('js/datatable.js') }}"></script>
-<script>
+{{-- <script>
     $(document).ready(function () {
         $('.niveaux').on('click', '.delete', function (event) {
             event.preventDefault();
@@ -125,7 +126,7 @@
             }
         });
     });
-</script>
+</script> --}}
 @endsection
 
 

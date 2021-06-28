@@ -28,13 +28,16 @@
 @endsection
 
 @section('content')
+<br>
+<h3 class="page-title">Les Matières</h3>
+<p>Créer une nouvelle matière</p>
 <div class="row">
     <div class="col-md-8">
         <div class="card">
             <div class="card-body">
                 <div class="head">
-                    <h5 class="mb-2">Toutes les catégories</h5>
-                    <p>Liste de toutes les catégories ajoutées</p>  
+                    <h5 class="mb-2">Toutes les Matières</h5>
+                    <p>Liste de toutes les Matières ajoutées</p>  
                 </div>
                 <br>
 
@@ -42,8 +45,8 @@
                     <table id="dataTableExample" class="table matierex">
                         <thead>
                             <tr>
-                                <th width="30%">Libellé</th>
-                                <th width="30%">Slug</th>
+                                <th width="30%">Libellés</th>
+                                <th width="30%">Icons</th>
                                 <th width="20%">Status</th>
                                 <th>Actions</th>
                             </tr>
@@ -54,13 +57,13 @@
                             <td>       
                                <span class="text">{{$matiere->libelle}}</span>
                             </td>
-                            <td>{{$matiere->slug}}</td>
+                            <td><img src="{{ asset($matiere->icon) }}" alt="" style="background: #ccc; width: 50px ; height: 50px"></td>
                              <td>{{$matiere->active == 1 ? 'Actif' : 'Inactif'}}</td>
                             <td>
                              <form action="{{ route('matiere.destroy',$matiere) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                    <a href="{{ route('matiere.edit',$matiere) }}" class="btn btn-dark btn-xs"> <i class="mdi mdi-pencil"></i>edit</a>
+                                    <a href="{{ route('matiere.edit',$matiere) }}" class="btn btn-primary btn-xs"> <i class="mdi mdi-pencil"></i>edit</a>
                                     <button class="btn btn-danger btn-xs delete"><i class="mdi mdi-delete"></i>delete</button>
                             </form>
 
@@ -69,7 +72,7 @@
                         @endforeach                                                
                         </tbody>
                     </table>
-                </div>
+                </div> 
             </div>
         </div>
     </div>
@@ -77,28 +80,31 @@
         <div class="card">
             <div class="card-body">
                 <div class="head">
-                    <h5 class="mb-2">Ajouter une catégorie</h5>
-                      <p>Créez une nouvelle Matière pour des cours figurants sur le site</p>
+                    <h5 class="mb-2">Ajouter une Matière</h5>
+                    <p>Créez une nouvelle Matière pour des cours figurants sur le site</p>
                 </div>
                 <br>
-                <form class="forms-sample" method="POST" action="{{ route('matiere.store') }}">
-                    @csrf
+                {!! Form::open(['method' => 'POST', 'route' => 'matiere.store', 'class' => 'form-horizontal', 'files' => true]) !!}
                     <label for="libelle">Libellé</label>
                     <div class="input-group mb-4">
                             <input type="text" name="libelle" class="form-control" placeholder="Titre de la Matière" aria-label="switch">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <label class="switch s-primary mb-0">
-                                        <input type="checkbox" name="active" checked="">
-                                        <span class="slider"></span>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
+                    </div>
+                    <label for="libelle">Status</label>
+                    <div class="input-group mb-4">
+                      <select name="active" class="form-control" id="active">
+                          <option value="1">actif</option>
+                          <option value="2">Inactif</option>
+                      </select>
+                     </div>
+                     <div class="form-group{{ $errors->has('icon') ? ' has-error' : '' }} mb-4">
+                         {!! Form::label('icon', 'Icons') !!}
+                         {!! Form::file('icon') !!}
+                         <small class="text-danger">{{ $errors->first('icon') }}</small>
+                     </div>
 
                     <button type="submit" class="btn btn-primary mr-2">Ajouter</button>
                     <button type="reset" class="btn btn-light">Annuler</button>
-                </form>
+             {!! Form::close() !!}
             </div>
         </div>
     </div>

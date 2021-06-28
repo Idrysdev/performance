@@ -29,7 +29,7 @@
             <div class="collapse" id="emails">
               <ul class="nav sub-menu">
                 <li class="nav-item">
-                  <a href="pages/email/inbox.html" class="nav-link">Inbox</a>
+                  <a href="{{ route('cour.index') }}" class="nav-link">Tous</a>
                 </li>
                 <li class="nav-item">
                   <a href="{{ route('cour.create') }}" class="nav-link">Créer</a>

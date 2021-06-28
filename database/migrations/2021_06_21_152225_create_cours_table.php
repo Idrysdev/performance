@@ -16,10 +16,15 @@ class CreateCoursTable extends Migration
         Schema::create('cours', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('image');
             $table->foreignId('classe_id');
             $table->foreignId('matiere_id');
-            $table->string('fichier');
+            $table->string('image');
+            $table->string('duree');
+            $table->string('description')->nullable();
+            //les Fichiers a charger ...
+            $table->string('video_intro')->nullable();
+            $table->string('video_cours')->nullable();
+            $table->string('fichier')->nullable();
             $table->timestamps();
         });
     }

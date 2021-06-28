@@ -44,9 +44,10 @@ class NiveauController extends Controller
             'active'  => ''
         ]);
        $data['slug'] = Str::slug($data['libelle']);
-       $data['active'] =  (isset($data['active']) && $data['active'] == 'on') ? 1: 0;
+       
        // dd($data);
        Niveau::create($data);
+        return back()->with('success','Le niveau a été mise a crée  avec succèss !');
        
     }
 
@@ -89,12 +90,11 @@ class NiveauController extends Controller
             'active'  => ''
         ]);
        $data['slug'] = Str::slug($data['libelle']);
-       $data['active'] =  (isset($data['active']) && $data['active'] == 'on') ? 1: 0;
        $niveau->libelle = $data['libelle'];
        $niveau->slug = $data['slug'];
        $niveau->active = $data['active'];
        $niveau->save();
-       return back();
+       return back()->with('success','Le Niveau a été mise a jour  avec succèss !');
     }
 
     /**
@@ -107,6 +107,6 @@ class NiveauController extends Controller
     {
         // dd($niveau);
         $niveau->delete();
-        return back();
+        return back()->with('success','Le niveau a été supprimer  avec succèss !');
     }
 }

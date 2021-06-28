@@ -48,7 +48,7 @@ class ClasseController extends Controller
        $data['slug'] = Str::slug($data['libelle']);
        // dd($data);
        Classe::create($data);
-       return json_encode('success');
+        return back()->with('success','La classe a été crée avec succèss !');
     }
 
     /**
@@ -95,7 +95,7 @@ class ClasseController extends Controller
        $classe->active = $data['active'];
        $classe->niveau_id = $data['niveau_id'];
        $classe->save();
-       return back();
+        return back()->with('success','La classe a été mise a jour  avec succèss !');
     }
 
     /**
@@ -108,6 +108,6 @@ class ClasseController extends Controller
     {
          // dd($niveau);
         $classe->delete();
-        return back();
+         return back()->with('success','La classe a été supprimer avec success !');
     }
 }

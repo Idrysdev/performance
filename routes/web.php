@@ -31,9 +31,12 @@ Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'inde
 route::resource('niveau',NiveauController::class);
 route::resource('classe',ClasseController::class);
 route::resource('matiere',MatiereController::class);
-route::resource('cour',courController::class);
 
 
     });
+route::resource('cour',courController::class);
+Route::patch('/cour/{cour}/add_video', [App\Http\Controllers\CourController::class, 'add_video'])->name('cour.add_video');
+Route::patch('/cour/{cour}/update_video', [App\Http\Controllers\CourController::class, 'update_image'])->name('cour.update_image');
+Route::post('/cour/{cour}/add_chapitre', [App\Http\Controllers\CourController::class, 'add_chapitre'])->name('cour.add_chapitre');
 
 

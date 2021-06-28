@@ -50,6 +50,7 @@
                       <h4 class="mb-3 mb-md-0">Welcome to Dashboard</h4>
                     </div>
                 </div> --}}
+                 @include('includes._flash-sms')
                 @yield('content')
             </div>
 

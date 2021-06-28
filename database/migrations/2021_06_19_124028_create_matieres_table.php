@@ -18,6 +18,7 @@ class CreateMatieresTable extends Migration
             $table->string('libelle');
             $table->string('slug');
             $table->boolean('active')->default(0);
+            $table->string('icon');
             $table->timestamps();
         });
     }

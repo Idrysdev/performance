@@ -9,5 +9,5 @@ class Matiere extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['libelle','slug','active'];
+    protected $fillable = ['libelle','slug','active' ,'icon'];
 }

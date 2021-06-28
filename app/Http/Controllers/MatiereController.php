@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Matiere;
 use Illuminate\Http\Request;
 use Str;
+use Storage;
 
 class MatiereController extends Controller
 {
@@ -40,13 +41,24 @@ class MatiereController extends Controller
          $data = $this->validate($request,[
             'libelle' => 'required',
             'slug'    => '',
-            'active'  => ''
+            'active'  => '',
+            'icon'    => 'required',
         ]);
+         // dd($data);
+         if ($request->hasFile('icon')) {
+            $destinationPath = 'assets/images/icons/'; //dossier de destination de la photo qu'on charge
+            $file = $request->icon;
+            $extension =  $file->getClientOriginalExtension(); //je recupère l'extension de l'image
+            $fileName = md5(time()).".".$extension; //je donne un nom au fichier photo qui sera stocké (exemple: 2458.png)
+            $file->move($destinationPath, $fileName); //je deplace l'image dans le dossier de destination
+            // $input['icon'] = $fileName;
+            $data['icon'] = $destinationPath.''.$fileName;
+            // dd($fileName);
+        }
+        // dd($data);
        $data['slug'] = Str::slug($data['libelle']);
-       $data['active'] =  (isset($data['active']) && $data['active'] == 'on') ? 1: 0;
-       // dd($data);
        Matiere::create($data);
-       return json_encode('success');
+       return back()->with('success','La matièrea été ajouter avec succèss !');
     }
 
     /**
@@ -83,15 +95,32 @@ class MatiereController extends Controller
          $data = $this->validate($request,[
             'libelle' => 'required',
             'slug'    => '',
-            'active'  => ''
+            'active'  => '',
+            'icon'  => ''
         ]);
+
+        if ($request->hasFile('icon')) {
+             // dd($data); 
+            $old = $matiere->icon;
+            $destinationPath = 'assets/images/icons/'; //dossier de destination de la photo qu'on charge
+            $file = $request->icon;
+            $extension =  $file->getClientOriginalExtension(); //je recupère l'extension de l'image
+            $fileName = md5(time()).".".$extension; //je donne un nom au fichier photo qui sera stocké (exemple: 2458.png)
+            $file->move($destinationPath, $fileName); //je deplace l'image dans le dossier de destination
+            // $input['icon'] = $fileName;
+            $data['icon'] = $destinationPath.''.$fileName;
+             $matiere->icon   =  $data['icon'];
+            // dd($fileName);
+            
+        }
+        // dd($data); 
        $data['slug'] = Str::slug($data['libelle']);
-       $data['active'] =  (isset($data['active']) && $data['active'] == 'on') ? 1: 0;
        $matiere->libelle = $data['libelle'];
        $matiere->slug = $data['slug'];
        $matiere->active = $data['active'];
-       $matiere->save();
-       return back();
+      
+       $matiere->update();
+       return back()->with('success','La matièrea été mise a jour avec succèss');
     }
 
     /**
