@@ -1,3 +1,4 @@
+ 
  <nav class="sidebar">
       <div class="sidebar-header">
         <a href="#" class="sidebar-brand">
@@ -19,6 +20,7 @@
               <span class="link-title">Dashboard</span>
             </a>
           </li>
+
           <li class="nav-item nav-category">MES COURS</li>
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#emails" role="button" aria-expanded="false" aria-controls="emails">
@@ -40,7 +42,7 @@
               </ul>
             </div>
           </li>
-          <li class="nav-item {{ Request()->path() == 'admin/niveau/*' ? 'active' : '' }}">
+          <li class="nav-item niveau {{ Request()->path() == 'admin/niveau/*' ? 'active' : '' }}">
             <a href="{{ route('niveau.create') }}"  class="nav-link">
               <i class="link-icon" data-feather="award"></i>
               <span class="link-title">Niveaux</span>
@@ -52,11 +54,39 @@
               <span class="link-title">Classes</span>
             </a>
           </li>
+
+           <li class="nav-item ">
+              <a href="index.html" class="nav-link">
+                <i class="link-icon" data-feather="inbox"></i>
+                <span class="link-title">Catégories</span>
+              </a>
+          </li>
+
           <li class="nav-item">
             <a href="{{ route('matiere.create') }}" class="nav-link">
               <i class="link-icon" data-feather="book"></i>
               <span class="link-title">Matières</span>
             </a>
+          </li>
+
+
+          <li class="nav-item nav-category">COMPTE</li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#users" role="button" aria-expanded="false" aria-controls="users">
+              <i class="link-icon" data-feather="users"></i>
+              <span class="link-title">Utilisateurs</span>
+              <i class="link-arrow" data-feather="chevron-down"></i>
+            </a>
+            <div class="collapse" id="users">
+              <ul class="nav sub-menu">
+                <li class="nav-item">
+                  <a href="{{ route('account.index') }}" class="nav-link">Tous</a>
+                </li>
+                <li class="nav-item">
+                  <a href="" class="nav-link">Créer</a>
+                </li>
+              </ul>
+            </div>
           </li>
 
 

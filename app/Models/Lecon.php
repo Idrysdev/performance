@@ -9,9 +9,11 @@ class Lecon extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     public function chapitre()
     {
-        return $this->belongsTo(chapitre::class);
+        return $this->belongsTo(Chapitre::class);
     }
 
 

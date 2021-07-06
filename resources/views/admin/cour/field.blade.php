@@ -46,18 +46,25 @@
 	</div>
 
 
+
 	<div class="col-md-12">
 		<div class="form-group">
 			<label for="description">Description</label>
 				<textarea placeholder="Ajouter une description brève" required name="description" class="form-control" id="description" rows="10"></textarea>
 		</div>
-
-	<br>
-	<button type="submit" class="btn btn-primary mr-2">Ajouter</button>
-	<a href="" class="btn btn-light">Annuler</a>
-
 	</div>
 
+	<div class="col-md-4">
+		<select name="active" id="">
+			<option value="1">active</option>
+			<option value="0">inactif</option>
+		</select>
+	</div>
+
+	<div class="col-md-12 mt-4">
+		<button type="submit" class="btn btn-primary mr-2">Ajouter</button>
+		<a href="" class="btn btn-light">Annuler</a>
+	</div>
 
 	
 

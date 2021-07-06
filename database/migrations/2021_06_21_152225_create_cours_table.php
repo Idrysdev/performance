@@ -21,6 +21,7 @@ class CreateCoursTable extends Migration
             $table->string('image');
             $table->string('duree');
             $table->string('description')->nullable();
+            $table->boolean('active')->default(0);
             //les Fichiers a charger ...
             $table->string('video_intro')->nullable();
             $table->string('video_cours')->nullable();

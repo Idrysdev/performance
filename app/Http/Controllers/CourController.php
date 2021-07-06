@@ -6,6 +6,7 @@ use App\Models\Cour;
 use App\Models\Matiere;
 use App\Models\Classe;
 use App\Models\Chapitre;
+use App\Models\Objectif;
 use Illuminate\Http\Request;
 use Str;
 
@@ -50,6 +51,7 @@ class CourController extends Controller
         $cour->matiere_id = $request->matiere_id;
         $cour->classe_id = $request->classe_id;
         $cour->duree = $request->heure;
+        $cour->active = $request->active;
         if ($request->hasFile('image')) {
             // dd($request->all());
             $destinationPath = 'assets/images/cours/'; //dossier de destination de la photo qu'on charge
@@ -65,7 +67,7 @@ class CourController extends Controller
         }
         $cour->description = $request->description;
         $cour->save();
-        return back()->route('cour.create')->with('success' ,' ok ');
+        return back()->with('success' ,'vous avez ajouté un nouveau cours !');
     }
 
 
@@ -115,6 +117,20 @@ class CourController extends Controller
     }
 
 
+    public function add_objectif(Request $request, Cour $cour)
+    {
+        $data = $this->validate($request, [
+            'libelle' => 'required',
+            'cour_id' => 'required'
+        ]);
+        // dd($data);
+
+        Objectif::create($data);
+        return back()->with('success' ,' vous avez ajouté un objectif au cours');
+  
+    }
+
+
 
 
 
@@ -137,7 +153,7 @@ class CourController extends Controller
             // $input['icon'] = $fileName;
             $cour->image = $destinationPath.''.$fileName;
             $cour->update();
-            return back()->with('success' , 'vous avez ahjouter la video introductive du cours');
+            return back()->with('success' , 'vous avez ajouter la video introductive du cours');
              // $matiere->icon   =  $data['icon'];
             // dd($fileName);
         }
@@ -166,11 +182,14 @@ class CourController extends Controller
      */
     public function edit(Cour $cour)
     {
-         $cours = Cour::all();
+        $objectifs = Objectif::all();
+        $cours = Cour::all();
+        $chapitres = Chapitre::all();
         $classes  = Classe::where('active',1)->get();
         $matieres = Matiere::where('active',1)->get();
         $chapitres = Chapitre::all();
-        return view('admin.cour.edit',compact('cour','classes','matieres','chapitres'));
+        // dd($chapitres->lecons);
+        return view('admin.cour.edit',compact('cour','classes','matieres','chapitres', 'objectifs'));
     }
 
     /**
@@ -187,6 +206,7 @@ class CourController extends Controller
         $cour->matiere_id = $request->matiere_id;
         $cour->classe_id = $request->classe_id;
         $cour->duree = $request->duree;
+        $cour->active = $request->active;
         if ($request->hasFile('image')) {
             // $video = $request->all();
              // dd($video);   
@@ -210,6 +230,14 @@ class CourController extends Controller
         return back()->with('success' , 'vous avez  la video introductive du cours');
     }
 
+
+    public function delete_objectif(Cour $cour , Objectif $objectif)
+    {
+        // dd($objectif);
+        $objectif->delete();
+        return back()->with('success','vous avez supprimer un objectif');
+    }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -218,6 +246,7 @@ class CourController extends Controller
      */
     public function destroy(Cour $cour)
     {
-        //
+        $cour->delete();
+        return back()->with('success', 'vous avez supprimer un cours');
     }
 }

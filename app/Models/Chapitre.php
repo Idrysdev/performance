@@ -14,6 +14,12 @@ class Chapitre extends Model
     protected $guarded= [];
 
 
+    public function lecons()
+    {
+        return $this->hasMany(Lecon::class);
+    }
+
+
     public function cour()
     {
         return $this->belongsTo(Cour::class);
@@ -21,10 +27,8 @@ class Chapitre extends Model
 
 
 
-    public function lecons()
-    {
-        return $this->hasMany(Lecon::class);
-    }
+   
+
 }
 
 

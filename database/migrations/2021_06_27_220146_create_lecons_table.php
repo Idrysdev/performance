@@ -17,9 +17,10 @@ class CreateLeconsTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('slug');
+            $table->string('descriptif')->nullable();
             $table->string('video')->nullable();
             $table->string('pdf')->nullable();
-            $table->foreignId('chapitres_id');
+            $table->foreignId('chapitre_id');
             $table->timestamps();
         });
     }

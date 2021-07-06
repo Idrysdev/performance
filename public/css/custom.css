@@ -1,0 +1,76 @@
+:root{
+	--primary: #66308f;
+	/*--vibedarkcolor: #230737;*/
+
+	--vibecolor: #66308f;
+	--vibedarkcolor: #230737;
+}
+
+/**
+* Core
+* Styles
+* Override
+*/
+.btn-primary, 
+.swal2-modal .swal2-actions button.swal2-confirm, 
+.wizard>.actions a, 
+.wizard>.actions a:hover{
+	background-color: var(--primary);
+
+	color: #fff;
+	border-color: var(--primary);
+}
+.btn-outline-primary, 
+.fc .fc-toolbar.fc-header-toolbar .fc-left .fc-button-group .fc-button, 
+.fc .fc-toolbar.fc-header-toolbar .fc-right .fc-button-group .fc-button, 
+.wizard>.actions .disabled a{
+	color: var(--primary);
+	border-color: var(--primary);
+}
+.form-check-primary.form-check label input[type=checkbox]:checked+.input-frame:before, 
+.form-check-primary.form-check label input[type=radio]:checked+.input-frame:before,
+.form-check-primary.form-check label input[type=checkbox]+.input-frame:before, 
+.form-check-primary.form-check label input[type=radio]+.input-frame:before{
+	border-color: var(--primary);
+}
+.form-check .form-check-label input[type=checkbox]:checked+.input-frame:before{
+	background: var(--primary);
+}
+
+.btn-custom-blue{
+	background-color: var(--primary);
+	color: #fff;
+}
+
+/* Form control : border */
+.email-compose-fields .select2-container--default .select2-selection--multiple, 
+.form-control, .select2-container--default .select2-selection--single, 
+.select2-container--default .select2-selection--single .select2-search__field, 
+.tt-hint, .tt-query, .typeahead, select,
+.email-compose-fields .select2-container--default select.select2-selection--multiple, 
+.select2-container--default .select2-selection--single select.select2-search__field, 
+.select2-container--default select.select2-selection--single, 
+select, select.form-control, select.tt-hint, select.tt-query, select.typeahead{
+	border-color: #8e9298;
+}
+
+/* Form control placeholder */
+.email-compose-fields .select2-container--default .select2-selection--multiple::placeholder, 
+.form-control::placeholder, 
+.select2-container--default .select2-selection--single .select2-search__field::placeholder, 
+.select2-container--default .select2-selection--single::placeholder, 
+.tt-hint::placeholder, .tt-query::placeholder, .typeahead::placeholder, select::placeholder,
+.email-compose-fields .select2-container--default select.select2-selection--multiple, 
+.select2-container--default .select2-selection--single select.select2-search__field, 
+.select2-container--default select.select2-selection--single, select, select.form-control, 
+select.tt-hint, select.tt-query, select.typeahead{
+	color: #8c8c8c;
+}
+
+
+/**
+* Structure
+*/
+.page-title + p{
+	margin-bottom: 30px;
+}

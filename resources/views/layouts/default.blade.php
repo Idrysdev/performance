@@ -10,25 +10,18 @@
     <link rel="stylesheet" href="{{ asset('assets/vendors/core/core.css') }}">
     <!-- endinject -->
   <!-- plugin css for this page -->
-    <link rel="stylesheet" href="{{ asset('assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css') }}"> --}}
     <!-- end plugin css for this page -->
     <!-- inject:css -->
     <link rel="stylesheet" href="{{ asset('assets/fonts/feather-font/css/iconfont.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendors/mdi/css/materialdesignicons.min.css') }}">
     <!-- endinject -->
   <!-- Layout styles -->  
     <link rel="stylesheet" href="{{ asset('assets/css/demo_1/style.css') }}">
   <!-- End layout styles -->
   <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}" />
-  <!-- Global site tag (gtag.js) - Google Analytics start -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-146586338-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'UA-146586338-1');
-  </script>
-  <!-- Google Analytics end -->
+  <link rel="shortcut icon" href="{{ asset('css/custom.css') }}" />
+ 
   @yield('styles')
 </head>
 <body>
