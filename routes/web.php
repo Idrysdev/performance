@@ -9,6 +9,7 @@ use App\Http\Controllers\MatiereController;
 use App\Http\Controllers\CourController;
 use App\Http\Controllers\ChapitreController;
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\ParentController;
 use App\Models\Chapitre;
 use App\Models\Cour;
 /*
@@ -45,11 +46,13 @@ Auth::routes();
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index']);
 
+// MODULE COURS
 route::resource('niveau',NiveauController::class);
 route::resource('classe',ClasseController::class);
 route::resource('matiere',MatiereController::class);
 route::resource('account',AccountController::class);
 
+// DETAILS DE COURS
 route::resource('cour',courController::class);
 route::resource('chapitre',ChapitreController::class);
 Route::post('/chapitre/{chapitre}/add_lecon', [App\Http\Controllers\ChapitreController::class, 'add_lecon'])->name('chapitre.add_lecon');
@@ -60,6 +63,14 @@ Route::post('/cour/{cour}/add_chapitre', [App\Http\Controllers\CourController::c
 Route::post('/cour/{cour}/add_objectif', [App\Http\Controllers\CourController::class, 'add_objectif'])->name('cour.add_objectif');
 Route::get('/cour/{cour}/objectif/{objectif}/delete', [App\Http\Controllers\CourController::class, 'delete_objectif'])->name('cour.dell_objectif');
 });
- 
+
+
+Route::get('/parents/register' ,  [App\Http\Controllers\PereController::class, 'register'])->name('parents.register');
+Route::post('/parents/store' ,  [App\Http\Controllers\PereController::class, 'store'])->name('parents.store');
+Route::get('/parents/login-page' ,  [App\Http\Controllers\PereController::class, 'loginPage'])->name('parents.login-page');
+Route::post('/parents/login' ,  [App\Http\Controllers\PereController::class, 'login'])->name('parents.login');
+Route::get('/parents/logout' ,  [App\Http\Controllers\PereController::class, 'logout'])->name('parents.logout')->middleware('pere');
+Route::get('/parents' ,  [App\Http\Controllers\PereController::class, 'index'])->name('parents.index')->middleware('pere');
+
 
 
