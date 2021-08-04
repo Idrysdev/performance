@@ -58,12 +58,19 @@ Route::post('/cour/{cour}/add_objectif', [App\Http\Controllers\CourController::c
 Route::get('/cour/{cour}/objectif/{objectif}/delete', [App\Http\Controllers\CourController::class, 'delete_objectif'])->name('cour.dell_objectif');
 });
 
+// contrller parents
 Route::get('/parents/register' ,  [App\Http\Controllers\PereController::class, 'register'])->name('parents.register');
 Route::post('/parents/store' ,  [App\Http\Controllers\PereController::class, 'store'])->name('parents.store');
 Route::get('/parents/login-page' ,  [App\Http\Controllers\PereController::class, 'loginPage'])->name('parents.login-page');
 Route::post('/parents/login' ,  [App\Http\Controllers\PereController::class, 'login'])->name('parents.login');
 Route::get('/parents/logout' ,  [App\Http\Controllers\PereController::class, 'logout'])->name('parents.logout')->middleware('pere');
 Route::get('/parents' ,  [App\Http\Controllers\PereController::class, 'index'])->name('parents.index')->middleware('pere');
+
+//Controller Parents Enfant
+Route::get('/parents/{pere}/create/children' ,  [App\Http\Controllers\PereController::class, 'create_children'])->name('parents.create_children');
+Route::post('/parents/{pere}/store/children' ,  [App\Http\Controllers\PereController::class, 'store_children'])->name('parents.store_children');
+
+
 
 
 
