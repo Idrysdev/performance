@@ -82,6 +82,15 @@ class PereController extends Controller
     	return redirect()->route('parents.login-page');
     }
 
+
+
+
+
+
+
+
+
+
     public function loginPage(){
 
         return view('Parents.login-page');
@@ -113,6 +122,40 @@ class PereController extends Controller
 
 
     }
+
+    // method for launch student created pages
+    public function create_children(Pere $pere)
+    {
+        // dd($pere->id);
+        // dd(Session('pere'));
+        return view('welcome',compact('pere'));
+
+    }
+
+    // method for launch student created pages
+    public function store_children(Request $request, Pere $pere)
+    {
+        if(Session()->has('pere') && Session('pere.id') == $pere->id){
+        $data = $request->all();
+        dd($data);
+
+        }
+        return back();
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
 
     /**
      * Display the specified resource.

@@ -40,14 +40,14 @@
                                 </span>
                         </div>
                 </div>
-            
+
                 <div class="">
                    <button class="btn btn-primary">Charger/Modifier</button>
                 </div>
-            
+
             {!! Form::close() !!}
             </div>
-            
+
         </div>
         <!-- first card of md-8 -->
     <div class="card">
@@ -96,9 +96,9 @@
                                 {!! Form::number('duree', $cour->duree, ['class' => 'form-control', 'required' => 'required']) !!}
                                 <small class="text-danger">{{ $errors->first('duree') }}</small>
                             </div>
-                        </div>  
+                        </div>
                     </div>
-                   
+
 
                    <div class="col-md-12">
                         <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
@@ -118,7 +118,7 @@
                         <button class="btn btn-primary"> sauvegader</button>
                     </div>
                  {!! Form::close() !!}
-            </div> 
+            </div>
           </div>
       </div>
 
@@ -133,7 +133,7 @@
                </div>
                {!! Form::hidden('cours_id', $cour->id) !!}
                <button class="btn btn-primary">Ajouter</button>
-            
+
             {!! Form::close() !!}
 
            </div>
@@ -167,7 +167,7 @@
                 <tr>
                     <td><i class="fa fa-play-circle"></i>  {{$lecon->title}}</td>
                     <td>
-                        @if($lecon->video) 
+                        @if($lecon->video)
                         <a href="{{ asset($lecon->video) }}"><i class="fa fa-play"></i></a>
                         @else
                         <span>N/A</span>
@@ -175,7 +175,7 @@
                     </td>
 
                     <td>
-                        @if($lecon->video) 
+                        @if($lecon->video)
                          <a href="{{ asset($lecon->pdf) }}"><i class="fa fa-file"></i></a>
                         @else
                         <span>N/A</span>
@@ -204,7 +204,7 @@
       </div>
       <div class="modal-body">
        {!! Form::open(['method' => 'POST', 'route' => ['chapitre.add_lecon',$chapitre], 'class' => 'form-horizontal' , 'files' => true]) !!}
-         
+
           {!! Form::hidden('chapitre_id', $chapitre->id) !!}
 
           <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
@@ -231,7 +231,7 @@
                      <small class="text-danger">{{ $errors->first('video') }}</small>
                  </div>
               </div>
-              
+
               <div class="col-md-6">
                   <div class="form-group{{ $errors->has('image') ? ' has-error' : '' }}">
                       <label>File upload</label>
@@ -253,14 +253,14 @@
     </div>
   </div>
 </div>
- 
+
 
  @endforeach
 
 </div>
 
 
-    
+
 
 
 
@@ -300,7 +300,7 @@
                         <label>Changer l'image de couverture :</label>
                         <input type="file" name="image" class="file-upload-default">
                         <div class="input-group col-xs-12">
-                            <input type="text" class="form-control file-upload-info" disabled="" placeholder="Upload Image">
+                            <input type="k" class="form-control file-upload-info" disabled="" placeholder="Upload Image">
                                 <span class="input-group-append">
                                     <button class="file-upload-browse btn btn-primary" type="button">charger</button>
                                 </span>
@@ -311,8 +311,8 @@
                 <div class="mt-2">
                    <button class="btn btn-primary">Charger/Modifier</button>
                 </div>
-              
-              
+
+
               {!! Form::close() !!}
             </div>
           </div>
@@ -340,11 +340,11 @@
                                 </span>
                         </div>
                     </div>
-            
+
                 <div class="">
                    <button class="btn btn-primary">Charger/Modifier</button>
                 </div>
-            
+
             {!! Form::close() !!}
            </div>
         </div>
@@ -385,14 +385,14 @@
                     </tr>
                     @endforeach
                 </table>
-        
+
             </div>
         </div>
        @endif
 
-  
 
-    
+
+
 
 
     </div>
@@ -402,7 +402,7 @@
 
 
 
-     
+
 @endsection
 
 @section('scripts')
