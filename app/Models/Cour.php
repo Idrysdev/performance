@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Chapitre;
 use App\Models\Objectif;
+use App\Models\Classe;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -22,6 +23,10 @@ class Cour extends Model
      public function objectifs()
     {
         return $this->hasMany(Objectif::class);
+    }
+
+    public function classe(){
+        return $this->belongsTo(Classe::class);
     }
 
 

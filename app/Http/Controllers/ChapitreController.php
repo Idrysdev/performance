@@ -50,14 +50,14 @@ class ChapitreController extends Controller
             // $input['icon'] = $fileName;
             $request->video = $destinationPath.''.$fileName;
              // $matiere->icon   =  $data['icon'];
-            // dd($fileName);  
+            // dd($fileName);
             // dd($request->video);
 
-       
+
         }
 
         if ($request->hasFile('pdf')) {
-            
+
             $destinationPath = 'assets/pdf/'; //dossier de destination de la photo qu'on charge
             $file = $request->pdf;
             // dd($file);
@@ -69,13 +69,13 @@ class ChapitreController extends Controller
             // dd($request->pdf);
              // $matiere->icon   =  $data['icon'];
             // dd($fileName);
-            
-       
+
+
         }
 
         Lecon::create([
             'title' =>$request->title,
-            'slug'  =>Str::slug($request->title),
+            'slug'  => Str::slug($request->title),
             'chapitre_id' =>$request->chapitre_id,
             'descriptif' =>$request->descriptif,
             'video' =>$request->video,
@@ -126,7 +126,7 @@ class ChapitreController extends Controller
      */
     public function edit(Chapitre $chapitre)
     {
-         
+
     }
 
     /**

@@ -9,6 +9,8 @@ use App\Http\Controllers\MatiereController;
 use App\Http\Controllers\CourController;
 use App\Http\Controllers\ChapitreController;
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\ConseilController;
+use App\Http\Controllers\FrontController;
 use App\Http\Controllers\ParentController;
 use App\Models\Chapitre;
 use App\Models\Cour;
@@ -23,27 +25,19 @@ use App\Models\Cour;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+// FRONT ROUTES
+Route::get('/', [App\Http\Controllers\FrontController::class,'index'])->name('index');
+Route::get('/classe/{slug}', [App\Http\Controllers\FrontController::class,'classe'])->name('classe');
+Route::get('/cours/{niveau}/{classe}', [App\Http\Controllers\FrontController::class,'cours'])->name('cours');
+Route::get('/matiere', [App\Http\Controllers\FrontController::class,'matiere'])->name('matiere');
 
-
-Route::get('/test', function () {
-    $cour = cour::all();
-    return $cour[0]->chapitres[0]->lecons[0];
-});
-
-Route::get('/tests', function () {
-    $cour = cour::all();
-    return $cour[0]->objectifs[0]->libelle;
-});
-
+route::resource('/conseils',ConseilController::class);
 
 
 
 Auth::routes();
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function(){
 Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index']);
 
 // MODULE COURS
@@ -52,7 +46,7 @@ route::resource('classe',ClasseController::class);
 route::resource('matiere',MatiereController::class);
 route::resource('account',AccountController::class);
 
-// DETAILS DE COURS
+//
 route::resource('cour',courController::class);
 route::resource('chapitre',ChapitreController::class);
 Route::post('/chapitre/{chapitre}/add_lecon', [App\Http\Controllers\ChapitreController::class, 'add_lecon'])->name('chapitre.add_lecon');
@@ -63,7 +57,6 @@ Route::post('/cour/{cour}/add_chapitre', [App\Http\Controllers\CourController::c
 Route::post('/cour/{cour}/add_objectif', [App\Http\Controllers\CourController::class, 'add_objectif'])->name('cour.add_objectif');
 Route::get('/cour/{cour}/objectif/{objectif}/delete', [App\Http\Controllers\CourController::class, 'delete_objectif'])->name('cour.dell_objectif');
 });
-
 
 Route::get('/parents/register' ,  [App\Http\Controllers\PereController::class, 'register'])->name('parents.register');
 Route::post('/parents/store' ,  [App\Http\Controllers\PereController::class, 'store'])->name('parents.store');
