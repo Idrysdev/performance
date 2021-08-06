@@ -155,7 +155,7 @@
                       </div>
                   </div>
             </div>
-              <div class="col-md-3" style=" min-height:700px">
+              <div class="col-md-3 mt-4" style=" min-height:700px">
                     <div class="styk">
                       <div class="bloc2">
                         <div class="img">
@@ -180,8 +180,9 @@
 </div>
 <!-- commity -->
 <div class="container-fluid p-0">
-  <div class="commity">
-    <img src="img/6.png" alt="" class="img-fluid">
+  <div class="commity expert">
+    <div class="overlay"></div>
+    <!-- <img src="img/6.png" alt="" class="img-fluid"> -->
     <div class="content">
       <p>Passioneé par l'éducation, vous souhaitez participer à l'aventure de performance accademique. <br> 
       Vous nous intéressez! Inscrivez-vous!</p>

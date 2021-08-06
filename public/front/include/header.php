@@ -6,10 +6,12 @@
     <link rel="stylesheet" href="dist/css/style.css?v=1.2">
     <link rel="stylesheet" href="dist/css/bootstrap.css?v=1.2">
     <link rel="stylesheet" href="dist/css/animate.css?v=1.2">
-    <link rel="shortcut icon" href="img/flavicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="img/flavicon2.png" type="image/x-icon">
+    <link href="lity-2.4.1/dist/lity.css" rel="stylesheet">
     <!-- js -->
     <script src="dist/js/jquery.js"></script>
     <script src="dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+    <script src="lity-2.4.1/vendor/jquery.js"></script>
     <title>Acceuil</title>
      <!-- plugin -->
      <link rel="stylesheet" href="dist/css/owl.carousel.min.css?v=1.2">

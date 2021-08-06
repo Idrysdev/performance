@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6">
-          <img src="img/logo.png" alt="">
+          <img src="img/logo-footer.png" alt="">
         </div>
         <div class="col-md-6">
           <h6>COPYRIGHT 2021 - MENTION - LEGALES</h6>

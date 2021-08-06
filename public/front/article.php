@@ -1,24 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="dist/css/style.css">
-    <link rel="stylesheet" href="dist/css/icomoon.css">
-    
-    <link rel="stylesheet" href="dist/css/animate.css">
-    <link href="dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-     <script src="dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
-     <!-- plugin -->
-     <link rel="stylesheet" href="dist/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="dist/css/owl.theme.default.min.css">
-     <script src="dist/js/parallax.min.js"></script>
-    <title>Document</title>
-</head>
+  <?php include "include/header.php"; ?>
 <body>
  <!-- header -->
-<?php include "include/nav.php"; ?>
+ <?php include "include/nav.php"; ?>
    <!-- article -->
    <div class="container-fluid mt-5">
     <div class="container">

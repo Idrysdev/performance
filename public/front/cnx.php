@@ -26,7 +26,7 @@
             <div class="col-md-6">
                 <div class="title">
                     <h3> Connexion</h3>
-                     <p>Connectez vous pour accéder à votre espace pour plus de fonctionnalité</p>
+                     <p>Connectez-vous pour accéder à votre espace afin de profiter de tous vos cours (en format texte et vidéo).</p>
                 </div>
                 <form action="welcome.php" style="padding-left: 50px;">
                     <input type="Email" placeholder="Login">

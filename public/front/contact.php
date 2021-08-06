@@ -22,7 +22,7 @@
 <!-- cours header -->
 <div class="container-fluid p-0">
     <div class="commity cours_header ">
-      <img src="img/s1.jpg" alt="" class="img-fluid">
+      <img src="img/c1.png" alt="" class="img-fluid">
       <div class="content dashbord_content contact_title">
         <h4>Contactez-nous</h4>
       </div>

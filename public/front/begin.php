@@ -51,11 +51,11 @@
                 <div class="tab-content" id="pills-tabContent">
                     <div class="tab-pane fade show active" id="pills-recherche" role="tabpanel" aria-labelledby="pills-profile-tab">
                         <div class="search-container">
-                            <form action="/action_page.php">
-                            <div class='searchbar' >
-                                <input type="text" placeholder="Rechercher du contenu de cours" name="search">
-                                <button type="submit"><img src="img/search1.png" alt=""></button>
-                            </div>
+                            <form action="">
+                                <div class='searchbar d-flex' >
+                                    <input type="text" placeholder="Rechercher du contenu de cours" name="search">
+                                    <button type="submit"><img src="img/search1.png" alt=""></button>
+                                </div>
                             </form>
                             <p><span>Lancer une nouvelle recherche</span> <br> <span>Pour trouver des sessions ou des ressources</span>  </p>
                         </div>
@@ -89,8 +89,8 @@
                     </div>
                     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
                         <div class="search-container question-reponse">
-                            <form action="/action_page.php">
-                                <div>
+                            <form action="">
+                                <div class='d-flex'>
                                     <input type="text" placeholder="Rechercher toute les questions relatives au cours" name="search">
                                     <button type="submit"><img src="img/search1.png" alt=""></button> <br>
                                 </div>
@@ -644,7 +644,7 @@
 <?php include "include/footer.php"; ?>
 
 
-<script src="dist/js/jquery.js"></script>
+<!-- <script src="dist/js/jquery.js"></script> -->
 <script src="dist/js/owl.carousel.min.js"></script>
 <script src="dist/js/script.js"></script>
 </body>

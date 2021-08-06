@@ -56,7 +56,7 @@
               </li>
              
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="apropos.php">A propos</a>
+                <a class="nav-link" aria-current="page" href="Apropos.php">A propos</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" aria-current="page" href="contact.php">Contactez-nous</a>

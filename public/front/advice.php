@@ -1,28 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- css -->
-    <link rel="stylesheet" href="dist/css/style.css">
-    <link rel="stylesheet" href="dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="dist/css/animate.css">
-    <!-- js -->
-    <script src="dist/js/jquery.js"></script>
-    <script src="dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
-    <title>Contact</title>
-     <!-- plugin -->
-     <link rel="stylesheet" href="dist/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="dist/css/owl.theme.default.min.css">
-</head>
+<?php include "include/header.php"; ?>
 <body>
 <!-- header -->
 <?php include "include/nav.php"; ?>
 <!-- cours header -->
 <div class="container-fluid p-0">
     <div class="commity cours_header ">
-      <img src="img/s1.jpg" alt="" class="img-fluid">
+      <img src="img/sslide.jpg" alt="" class="img-fluid">
       <div class="content dashbord_content contact_title">
         <h4>Conseils d'expert</h4>
       </div>
@@ -106,7 +91,18 @@
     </div>
   </div>
 </div>
-
+<!-- commity -->
+<div class="container-fluid p-0">
+  <div class="commity expert">
+    <div class="overlay"></div>
+    <!-- <img src="img/6.png" alt="" class="img-fluid"> -->
+    <div class="content">
+      <p>Passioneé par l'éducation, vous souhaitez participer à l'aventure de performance academy. <br> 
+      Vous nous intéressez! Inscrivez-vous!</p>
+      <a href="cnx2.php">Rejoignez nos experts</a>
+    </div>
+  </div>
+</div>
 <!-- footer -->
 <?php include "include/footer.php"; ?>
 

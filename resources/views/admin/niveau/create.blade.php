@@ -36,7 +36,7 @@
             <div class="card-body">
                 <div class="head">
                     <h5 class="mb-2">Tous les niveaux</h5>
-                    <p>Liste de tous les niveaux ajoutées</p>  
+                    <p>Liste de tous les niveaux ajoutées</p>
                 </div>
                 <br>
 
@@ -44,19 +44,19 @@
                     <table id="dataTableExample" class="table niveaux">
                         <thead>
                             <tr>
-                                <th width="30%">Libellé</th>
-                                <th width="30%">Code</th>
-                                <th width="20%">Status</th>
-                                <th>Actions</th>
+                                <th width="40%">Libellé</th>
+                                {{-- <th width="30%">Code</th> --}}
+                                <th width="40%">Status</th>
+                                <th width="20%">Actions</th>
                             </tr>
                         </thead>
-                        <tbody> 
-                         @foreach($niveaux as $niveau)                          
+                        <tbody>
+                         @foreach($niveaux as $niveau)
                         <tr>
-                            <td>       
+                            <td>
                                <span class="text">{{$niveau->libelle}}</span>
                             </td>
-                            <td>{{$niveau->libelle}}</td>
+                            {{-- <td>{{$niveau->slug}}</td> --}}
                              <td>{{$niveau->active == 1 ? 'Actif' : 'Inactif'}}</td>
                             <td>
                              <form action="{{ route('niveau.destroy',$niveau) }}" method="POST">
@@ -68,7 +68,7 @@
 
                             </td>
                         </tr>
-                        @endforeach                                                
+                        @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -80,7 +80,7 @@
             <div class="card-body">
                 <div class="head">
                     <h5 class="mb-2">Ajouter un niveau</h5>
-                  
+
                     <p>Créez un niveau  pour des classe figurants sur le site</p>
                 </div>
                 <br>
@@ -130,4 +130,3 @@
 @endsection
 
 
- 

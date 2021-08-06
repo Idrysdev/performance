@@ -36,7 +36,7 @@
             <div class="card-body">
                 <div class="head">
                     <h5 class="mb-2">Toutes les Classes</h5>
-                    <p>Liste de toutes les classes ajoutées</p>  
+                    <p>Liste de toutes les classes ajoutées</p>
                 </div>
                 <br>
 
@@ -50,10 +50,10 @@
                                 <th>Actions</th>
                             </tr>
                         </thead>
-                        <tbody> 
-                         @foreach($classes as $classe)                          
+                        <tbody>
+                         @foreach($classes as $classe)
                         <tr>
-                            <td>       
+                            <td>
                                <span class="text">{{$classe->libelle}}</span>
                             </td>
                             <td>{{$classe->niveau->libelle}}</td>
@@ -68,7 +68,7 @@
 
                             </td>
                         </tr>
-                        @endforeach                                                
+                        @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -85,24 +85,23 @@
                 <br>
                 <form class="forms-sample" method="POST" action="{{ route('classe.store') }}">
                     @csrf
-                    <label for="libelle">Libellé</label>
+                    <select class="form-control  mb-4" name="niveau_id" id="niveau">
+                        <option value="">-- selectionner le niveau --</option>
+                        @foreach($niveaux as $niveau)
+                             <option value="{{$niveau->id}}">{{$niveau->libelle}}</option>
+                        @endforeach
+                     </select>
+                    {{-- <label for="libelle">Libellé</label> --}}
                     <div class="input-group mb-4">
                         <input type="text" name="libelle" class="form-control" placeholder="Titre de la Classe" aria-label="switch">
                     </div>
-                    <select class="form-control  mb-4" name="niveau_id" id="niveau">
-                                <option value="">-- selectionner le niveau --</option>
-                                @foreach($niveaux as $niveau)
-                                     <option value="{{$niveau->id}}">{{$niveau->libelle}}</option>
-                                @endforeach
-                    </select>
+
                     <div class="input-group mb-4">
                       <select name="active" class="form-control" id="active">
                           <option value="1">actif</option>
                           <option value="2">Inactif</option>
                       </select>
                     </div>
-
-
 
 
                     <button type="submit" class="btn btn-primary mr-2">Ajouter</button>
@@ -135,7 +134,6 @@
 @endsection
 
 
- 
 
 
 
@@ -148,4 +146,4 @@
 
 
 
- 
+

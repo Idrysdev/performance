@@ -43,12 +43,12 @@ class NiveauController extends Controller
             'slug'    => '',
             'active'  => ''
         ]);
-       $data['slug'] = Str::slug($data['libelle']);
-       
+       $data['slug'] = Str::slug($title)::slug($data['libelle']);
+
        // dd($data);
        Niveau::create($data);
         return back()->with('success','Le niveau a été mise a crée  avec succèss !');
-       
+
     }
 
     /**

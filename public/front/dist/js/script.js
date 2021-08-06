@@ -113,11 +113,12 @@
    $(window).scroll(function() {
      let topOfWindow = $(window).scrollTop();
     //  console.log(topOfWindow);
-     if(topOfWindow>=114){
-      $(".sty").css("position","fixed");
-      $(".sty").css("width","25%");
-      $(".sty").css("Z-index","400");
-      $(".sty").css("margin-top","-115px");
+     if(topOfWindow>=200){
+       
+       $(".sty").css("position","fixed");
+       $(".sty").css("width","25%");
+       $(".sty").css("Z-index","400");
+       $(".sty").css("margin-top","-190px");
      }else{
       $(".sty").css("position","absolute");
       $(".sty").css("width","100%");
@@ -126,4 +127,9 @@
     
 });
 
+
+
+ //video page index
+
+ 
 

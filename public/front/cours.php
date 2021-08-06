@@ -5,16 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- css -->
-    <link rel="stylesheet" href="dist/css/style.css">
-    <link rel="stylesheet" href="dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="dist/css/animate.css">
+    <link rel="stylesheet" href="dist/css/style.css?v=1.5">
+    <link rel="stylesheet" href="dist/css/bootstrap.min.css?v=1.5">
+    <link rel="stylesheet" href="dist/css/animate.css?v=1.5">
     <!-- js -->
     <script src="dist/js/jquery.js"></script>
     <script src="dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
     <title>Cours</title>
      <!-- plugin -->
-     <link rel="stylesheet" href="dist/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="dist/css/owl.theme.default.min.css">
+     <link rel="stylesheet" href="dist/css/owl.carousel.min.css?v=1.5">
+    <link rel="stylesheet" href="dist/css/owl.theme.default.min.css?v=1.5">
 </head>
 <body>
 <!-- header -->
@@ -24,7 +24,7 @@
     <div class="commity cours_header ">
       <img src="img/s1.jpg" alt="" class="img-fluid">
       <div class="content">
-        <h3>cours</h3>
+      <h3>Tle D</h3>
       </div>
     </div>
   </div>
@@ -39,18 +39,22 @@
     <div class="container">
         <div class="fliltre">
             <form>  
-                <select name="" id="">
+                <!-- <select name="" id="">
                   <option value="">Choisir un niveau</option>
                   <option value="">3 <sup>e</sup></option>
                   <option value="">Tle</option>
-                </select>
+                </select> -->
             
-                <select name="" id="" style=" margin-left: 25px;">
-                    <option value="">Choisir la classe</option>
-                    <option value="">Tle A</option>
-                    <option value="">Tle D</option>
-                    <option value="">Tle A</option>
-                    <option value="">Tle A2</option>
+                <select name="">
+                    <option value="">Choisir la matière</option>
+                    <option value="">Mathematiques	</option>
+                    <option value="">Physique chimie	</option>
+                    <option value="">SVT</option>
+                    <option value="">Anglais	</option>
+                    <option value="">Allemand</option>
+                    <option value="">Espagnol</option>
+                    <option value="">Histoire géographie</option>
+                    <option value="">Education aux droits de l'homme et à la cioyenneté</option>
                 </select>
             </form>
         </div>
@@ -360,12 +364,13 @@
 </div>
 <!-- commity -->
 <div class="container-fluid p-0">
-  <div class="commity">
-    <img src="img/6.png" alt="" class="img-fluid">
+  <div class="commity expert">
+    <div class="overlay"></div>
+    <!-- <img src="img/6.png" alt="" class="img-fluid"> -->
     <div class="content">
       <p>Passioneé par l'éducation, vous souhaitez participer à l'aventure de performance academy. <br> 
       Vous nous intéressez! Inscrivez-vous!</p>
-      <a href="">Rejoignez nos experts</a>
+      <a href="cnx2.php">Rejoignez nos experts</a>
     </div>
   </div>
 </div>
